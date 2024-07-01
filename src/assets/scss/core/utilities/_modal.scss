@@ -1,0 +1,42 @@
+.modal {
+   &-header {
+      border-radius: 0 !important;
+      &-btn,
+      &-btn:hover {
+         color: $white;
+      }
+   }
+   &-body {
+      background-color: $modal-body-bg;
+      &-locked {
+         position: relative;
+         z-index: 0;
+         display: block;
+         min-height: 40%;
+         min-width: 100%;
+         &:after {
+            font: normal normal normal 14px/1 FontAwesome;
+            content: "\f023";
+            color: $red;
+            font-size: 120px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.1;
+         }
+      }
+   }
+
+   &-footer {
+      background-color: $modal-body-bg;
+      border-radius: 0 !important;
+   }
+}
+
+::ng-deep {
+   div .modal-content {
+      border: 1px solid #868181 !important;
+      border-radius: 0 !important;
+   }
+}

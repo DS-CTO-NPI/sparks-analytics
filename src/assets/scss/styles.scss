@@ -1,0 +1,9 @@
+@import "./core/core.scss";
+
+html,
+body {
+   font-family: $font-family;
+   background-color: $body-bg;
+   font-size: $font-size-base;
+   color: map-get($colors, $gray-900);
+}

@@ -1,0 +1,48 @@
+button.btn {
+   border-radius: 0 !important;
+   padding: 5px 15px;
+   &:focus,
+   &.focus {
+      box-shadow: none !important;
+   }
+   &.disabled,
+   &:disabled {
+      opacity: 1;
+   }
+}
+
+.icon-btn {
+   &:hover {
+      color: $icon-btn-hover;
+      &::before {
+         content: attr(data-title);
+         position: absolute;
+         top: 148%;
+         right: 30%;
+         transform: translateY(-50%);
+         background-color: $icon-btn-bg;
+         color: $icon-btn-color;
+         padding: 5px 12px;
+         border-radius: 2px;
+         white-space: nowrap;
+         visibility: visible;
+         opacity: 1;
+         transition: opacity 0.2s ease-in-out;
+      }
+   }
+   &::before {
+      content: attr(data-title);
+      position: absolute;
+      top: 140%;
+      right: 30%;
+      transform: translateY(-50%);
+      background-color: $icon-btn-bg;
+      color: $icon-btn-color;
+      padding: 5px;
+      border-radius: 5px;
+      white-space: nowrap;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+   }
+}
