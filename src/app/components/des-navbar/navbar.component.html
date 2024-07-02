@@ -1,0 +1,40 @@
+<ngx-spinner bdColor="rgba(0,0,0,0.6)" size="medium" color="#217fb1" type="square-jelly-box" [fullScreen]="true"></ngx-spinner>
+<nav class="navbar navbar-expand-lg">
+	<ul>
+		<li class="nav-item">
+			<a class="navbar-menu">
+				<img src="assets/images/menu_grid.svg" width="30" height="30" class="d-inline-block align-top" alt="menu_grid" />
+			</a>
+		</li>
+		<li class="nav-item logo"><img class="logo" class="navbar-logo" src="assets/images/DS_Logo_White.png" /></li>
+		<li class="nav-item"><a class="navbar-brand" [routerLink]="['/plant-dashboard']">Sparks Analytics</a></li>
+	</ul>
+	<button
+		class="navbar-toggler mr-4"
+		type="button"
+		data-toggle="collapse"
+		data-target="#right-nav-menu"
+		aria-controls="right-nav-menu"
+		aria-expanded="false"
+		aria-label="Toggle navigation">
+		<span class="fa fa-bars text-white"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="right-nav-menu">
+		<ul class="navbar-nav mr-auto"></ul>
+		<form class="form-inline my-2 my-lg-0">
+			<des-alarm-widget></des-alarm-widget>
+		</form>
+		<div class="navbar-profile">
+			<img src="assets/images/profile_avatar.png" width="50" class="rounded-circle" alt="profile_avatar" data-toggle="dropdown" aria-expanded="false" />
+			<div class="dropdown-menu dropdown-menu-right">
+				<h6>{{ loginId }}</h6>
+				<h6>{{ userName }}</h6>
+				<small class="text-muted">{{ emailAddress }}</small>
+				<div class="dropdown-divider"></div>
+				<button class="dropdown-item" type="button">About</button>
+				<button class="dropdown-item" type="button" (click)="logout()">Logout</button>
+			</div>
+		</div>
+	</div>
+</nav>

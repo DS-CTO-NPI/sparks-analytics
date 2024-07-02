@@ -13,7 +13,9 @@ $black: #000 !default;
 $white: #fff;
 $blue: #20a8d8;
 $red: red;
-
+//navbar
+$navbar-bg: #052165;
+$navbar-text: #fff;
 // btn
 $icon-btn-hover: #576f94;
 $icon-btn-bg: $gray-900;
@@ -50,7 +52,6 @@ $ag-disabled-paging-btn: $gray-500;
 $ag-tooltip-bg: #c0e9fa;
 $ag-tooltip-color: $black;
 $ag-tooltip-border: $gray-400;
-
 
 $colors: (
    gray: $gray-400,

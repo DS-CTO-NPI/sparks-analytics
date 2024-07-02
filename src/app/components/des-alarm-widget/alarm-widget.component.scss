@@ -1,0 +1,29 @@
+section {
+	border: 1px solid #fff;
+	border-radius: 24px;
+	display: flex;
+	padding: 10px;
+	margin: 0 10px;
+}
+
+.rounded-badge {
+	padding: 0.4rem 0.6rem;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.bg-critical {
+	background-color: #f21212;
+}
+.bg-major {
+	background-color: #f49a10;
+}
+.bg-minor {
+	background-color: #fde046;
+}
+.bg-warnings {
+	background-color: #3f70f0;
+}
+.bg-all {
+	background-color: #27a100;
+}

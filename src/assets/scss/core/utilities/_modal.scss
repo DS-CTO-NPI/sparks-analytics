@@ -1,6 +1,10 @@
 .modal {
    &-header {
+      background: #052165;
+      color: $white;
+      padding: 0.5rem 1rem;
       border-radius: 0 !important;
+      border: #505050 1px solid;
       &-btn,
       &-btn:hover {
          color: $white;

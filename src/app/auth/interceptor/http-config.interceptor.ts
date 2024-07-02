@@ -13,7 +13,7 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 	intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 		const appName: string = environment.name;
 		const databaseName: string = "" || appName;
-		const authToken = sessionStorage.getItem(`${appName}-auth-token`);
+		const authToken = sessionStorage.getItem(`${appName}-authToken`);
 
 		request = request.clone({
 			setHeaders: {
@@ -35,7 +35,6 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 			}),
 			catchError((err) => {
 				if (err.status === 401) {
-					sessionStorage.clear();
 					this.router.navigate(["/"]);
 				}
 

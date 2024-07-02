@@ -1,16 +1,16 @@
-import { HashLocationStrategy, LocationStrategy } from "@angular/common";
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from "@angular/common/http";
+import { CommonModule, HashLocationStrategy, LocationStrategy } from "@angular/common";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { HttpConfigInterceptor } from "./services/interceptor/http-config.interceptor";
+import { HttpConfigInterceptor } from "./auth/interceptor/http-config.interceptor";
+import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
 	declarations: [AppComponent],
-	imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, AppRoutingModule],
+	imports: [CommonModule, BrowserModule, BrowserAnimationsModule, HttpClientModule, SharedModule, AppRoutingModule],
 	providers: [
 		{
 			provide: LocationStrategy,
@@ -25,7 +25,3 @@ import { HttpConfigInterceptor } from "./services/interceptor/http-config.interc
 	bootstrap: [AppComponent]
 })
 export class AppModule {}
-
-export function HttpLoaderFactory(http: HttpClient) {
-	return new TranslateHttpLoader(http, "assets/i18n/", ".json");
-}

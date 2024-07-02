@@ -1,7 +1,7 @@
 {
 	"name": "sparks-analytics",
 	"appId": "6",
-	"application": "sparks",
+	"application": "hems",
 	"description": "Sparks Analytics",
 	"version": "0.0.0",
 	"scripts": {
@@ -26,9 +26,16 @@
 		"@ngx-translate/core": "^13.0.0",
 		"@ngx-translate/http-loader": "^7.0.0",
 		"@popperjs/core": "^2.11.8",
+		"@circlon/angular-tree-component": "^11.0.4",
+		"ag-grid-angular": "^24.0.0",
+		"ag-grid-community": "^24.0.0",
 		"bootstrap": "^4.5.2",
 		"jquery": "^3.7.1",
+		"font-awesome": "^4.7.0",
 		"ngx-toastr": "^13.0.1",
+		"ngx-bootstrap": "^6.1.0",
+		"ngx-spinner": "^11.0.1",
+		"ng-event-source": "^1.0.14",
 		"rxjs": "~7.5.0",
 		"tslib": "^2.3.0",
 		"zone.js": "~0.11.4"
