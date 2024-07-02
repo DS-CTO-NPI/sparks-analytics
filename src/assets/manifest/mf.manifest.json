@@ -1,0 +1,6 @@
+{
+
+	"historian-viewer": "http://localhost:4206/remoteEntry.js",
+	"trends-viewer": "http://localhost:4207/remoteEntry.js"
+
+}
