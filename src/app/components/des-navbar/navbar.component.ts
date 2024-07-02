@@ -13,7 +13,8 @@ export class NavbarComponent {
 	loginId: string = sessionStorage.getItem(`${environment.name}-authenticatedUser`) || "NA";
 	userName: string = sessionStorage.getItem(`${environment.name}-username`) || "NA";
 	emailAddress: string = sessionStorage.getItem(`${environment.name}-emailAddress`) || "NA";
-
+	version = environment.version;
+	title = environment.description;
 	constructor(private authService: AuthService, private router: Router, private spinner: NgxSpinnerService) {}
 
 	logout = () => {

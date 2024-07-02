@@ -26,8 +26,8 @@ export const routes: Routes = [
 			{
 				path: "user-management",
 				loadChildren: () =>
-					loadRemoteModule({ type: "manifest", remoteName: "plant-dashboard-mfe", exposedModule: "./PlantDashboardModule" })
-						.then((m) => m.PlantDashboardModule)
+					loadRemoteModule({ type: "manifest", remoteName: "user-management-mfe", exposedModule: "./UserManagementModule" })
+						.then((m) => m.UserManagementModule)
 						.catch((e) => console.log(e)),
 				canActivate: [AuthGuard],
 				data: {
@@ -40,21 +40,21 @@ export const routes: Routes = [
 			}
 		]
 	},
-	{
-		path: "user-management",
-		loadChildren: () =>
-			loadRemoteModule({ type: "manifest", remoteName: "user-management-mfe", exposedModule: "./UserManagementModule" })
-				.then((m) => m.UserManagementModule)
-				.catch((e) => console.log(e)),
-		canActivate: [AuthGuard],
-		data: {
-			name: "User Management",
-			application: {
-				id: 6, // hems
-				name: "hems"
-			}
-		}
-	},
+	// {
+	// 	path: "user-management",
+	// 	loadChildren: () =>
+	// 		loadRemoteModule({ type: "manifest", remoteName: "user-management-mfe", exposedModule: "./UserManagementModule" })
+	// 			.then((m) => m.UserManagementModule)
+	// 			.catch((e) => console.log(e)),
+	// 	canActivate: [AuthGuard],
+	// 	data: {
+	// 		name: "User Management",
+	// 		application: {
+	// 			id: 6, // hems
+	// 			name: "hems"
+	// 		}
+	// 	}
+	// },
 	{
 		path: "page-not-found",
 		component: PageNotFoundComponent

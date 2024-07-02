@@ -22,7 +22,7 @@
 
 	<div class="collapse navbar-collapse" id="right-nav-menu">
 		<ul class="navbar-nav mr-auto"></ul>
-		<form class="form-inline my-2 my-lg-0">
+		<form class="form-inline">
 			<des-alarm-widget></des-alarm-widget>
 		</form>
 		<div class="navbar-profile">
@@ -32,9 +32,35 @@
 				<h6>{{ userName }}</h6>
 				<small class="text-muted">{{ emailAddress }}</small>
 				<div class="dropdown-divider"></div>
-				<button class="dropdown-item" type="button">About</button>
+				<button class="dropdown-item" type="button" data-toggle="modal" data-target="#aboutModal">About</button>
 				<button class="dropdown-item" type="button" (click)="logout()">Logout</button>
 			</div>
 		</div>
 	</div>
 </nav>
+
+<!-- Modal -->
+<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">{{ title }}</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span class="text-white" aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body text-center">
+				<h5>Application : {{ title }}</h5>
+				<h5>Version : {{ version }}</h5>
+				<small>
+					Copyright (c) 2021-2024 L&T SPARK Digital Energy Platform.
+					<br />
+					All rights reserved.
+				</small>
+			</div>
+			<div class="modal-footer text-center">
+				<button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

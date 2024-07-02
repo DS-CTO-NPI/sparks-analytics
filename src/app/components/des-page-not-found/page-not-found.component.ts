@@ -4,7 +4,7 @@ import { Component, OnInit } from "@angular/core";
 	selector: "des-page-not-found",
 	template: `
 		<h3>
-			<i class="fa fa-exclamation-circle text-danger" aria-hidden="true"></i>
+			<i class="fa fa-exclamation-triangle text-danger" aria-hidden="true"></i>
 			page-not-found works!
 		</h3>
 	`,

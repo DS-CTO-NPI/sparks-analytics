@@ -7,7 +7,6 @@ import { environment } from "src/environments/environment";
 	styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-	title = "sparks-analytics";
 	constructor() {
 		const application = {
 			NAME: environment.name,
