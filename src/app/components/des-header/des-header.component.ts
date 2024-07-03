@@ -7,7 +7,6 @@ import { Component, OnInit } from "@angular/core";
 			<des-navbar></des-navbar>
 			<section class="secondary-nav">
 				<des-breadcrumb></des-breadcrumb>
-				<des-controller-widget></des-controller-widget>
 			</section>
 		</header>
 	`,

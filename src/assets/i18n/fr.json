@@ -3,5 +3,6 @@
 	"Sign In": "Se connecter",
 	"Username": "Nom d'utilisateur",
 	"Password": "Mot de passe",
-	"Remember me": "Souviens-toi de moi"
+	"Remember me": "Souviens-toi de moi",
+	"noFilterSelected": "No filter selected"
 }

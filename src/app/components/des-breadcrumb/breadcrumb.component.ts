@@ -24,7 +24,7 @@ import { Breadcrumb, BreadcrumbService } from "./breadcrumb.service";
 				color: #ffff;
 				margin: 0;
 				border-radius: 0;
-				padding: 1rem 0px;
+				padding: 0.5rem 0px;
 			}
 			.breadcrumb-item.active {
 				color: #c5c5c5;

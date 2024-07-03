@@ -17,7 +17,20 @@
 		"importHelpers": true,
 		"target": "es2020",
 		"module": "es2020",
-		"lib": ["es2020", "dom"]
+		"types": ["node"],
+		"resolveJsonModule": true,
+		"allowSyntheticDefaultImports": true,
+		"lib": ["es2020", "dom"],
+		"paths": {
+			"@auth/*": ["src/app/auth/*"],
+			"@components/*": ["src/app/components/*"],
+			"@containers/*": ["src/app/containers/*"],
+			"@enums/*": ["src/app/enums/*"],
+			"@model/*": ["src/app/model/*"],
+			"@services/*": ["src/app/services/*"],
+			"@shared/*": ["src/app/shared/*"],
+			"@environments/*": ["src/environments/*"]
+		}
 	},
 	"angularCompilerOptions": {
 		"enableI18nLegacyMessageIdFormat": false,

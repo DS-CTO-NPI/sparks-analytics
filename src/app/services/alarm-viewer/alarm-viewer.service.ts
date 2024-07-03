@@ -1,9 +1,9 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { API } from "@enums/index";
+import { getEndpointUrl } from "@environments/environment";
 import { EventSourcePolyfill } from "ng-event-source";
 import { Observable } from "rxjs";
-import { API } from "src/app/enums/AppConfig";
-import { getEndpointUrl } from "src/environments/environment";
 
 @Injectable({
 	providedIn: "root"

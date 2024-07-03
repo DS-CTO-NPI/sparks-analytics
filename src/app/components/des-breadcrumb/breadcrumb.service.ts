@@ -13,6 +13,7 @@ export class BreadcrumbService {
 	constructor(private router: Router, private activatedRoute: ActivatedRoute) {
 		this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
 			this.breadcrumbs = [{ label: "Home", url: "/plant-dashboard" }, ...this.createBreadcrumbs(this.activatedRoute.root)];
+			console.log(this.breadcrumbs);
 		});
 	}
 

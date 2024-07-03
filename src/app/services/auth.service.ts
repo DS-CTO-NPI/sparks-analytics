@@ -1,8 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { API } from "@enums/index";
+import { environment, getEndpointUrl } from "@environments/environment";
 import { Observable, delay } from "rxjs";
-import { environment, getEndpointUrl } from "src/environments/environment";
-import { API } from "../enums";
 
 @Injectable({
 	providedIn: "root"

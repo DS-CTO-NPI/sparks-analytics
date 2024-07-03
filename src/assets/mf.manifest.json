@@ -1,3 +1,4 @@
 {
+	"mfealarm": "http://localhost:4201/remoteEntry.js",
 	"user-management-mfe": "http://localhost:4204/remoteEntry.js"
 }

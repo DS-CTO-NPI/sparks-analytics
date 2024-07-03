@@ -1,9 +1,9 @@
 import { loadRemoteModule } from "@angular-architects/module-federation";
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { AuthGuard } from "./auth/auth-guards/auth.guard";
-import { PageNotFoundComponent } from "./components";
-import { AppLayoutComponent } from "./containers/app-layout/app-layout.component";
+import { AuthGuard } from "@auth/auth-guards/auth.guard";
+import { PageNotFoundComponent } from "@components/index";
+import { AppLayoutComponent } from "@containers/index";
 
 export const routes: Routes = [
 	{
@@ -36,6 +36,18 @@ export const routes: Routes = [
 						id: 6, // hems
 						name: "hems"
 					}
+				}
+			},
+			{
+				path: "alarm-viewer",
+				loadChildren: () =>
+					loadRemoteModule({ type: "manifest", remoteName: "mfealarm", exposedModule: "./RemoteAlarmsViewerModule" })
+						.then((m) => m.RemoteAlarmsViewerModule)
+						.catch((e) => console.log(e)),
+				canActivate: [AuthGuard],
+				data: {
+					controllerName: "hems",
+					name: "Alarm Viewer"
 				}
 			}
 		]
