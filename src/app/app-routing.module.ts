@@ -1,9 +1,9 @@
 import { loadRemoteModule } from "@angular-architects/module-federation";
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { AuthGuard } from "@auth/auth-guards/auth.guard";
-import { PageNotFoundComponent } from "@components/index";
-import { AppLayoutComponent } from "@containers/index";
+import { AuthGuard } from "./auth/auth-guards/auth.guard";
+import { PageNotFoundComponent } from "./components";
+import { AppLayoutComponent } from "./containers";
 
 export const routes: Routes = [
 	{
