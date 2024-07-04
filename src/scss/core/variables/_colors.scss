@@ -1,0 +1,63 @@
+// Bootstrap overrides
+// DARK THEME -- Color system
+$gray-100: #f0f3f5;
+$gray-200: #f1f1f1;
+$gray-300: #ced4da;
+$gray-400: #dee2e6;
+$gray-500: #9d9d9d;
+$gray-600: #536c79;
+$gray-700: #3e515b;
+$gray-800: #29363d;
+$gray-900: #151b1e;
+$black: #000 !default;
+$white: #fff;
+$blue: #20a8d8;
+$red: red;
+//navbar
+$navbar-bg: #052165;
+$navbar-text: #fff;
+// btn
+$icon-btn-hover: #576f94;
+$icon-btn-bg: $gray-900;
+$icon-btn-color: $white;
+// card
+$card-header-bg: #1f3b64;
+$card-body-bg: #172a46;
+$modal-body-bg: #fbfbfb;
+// form-control
+$form-control-color: $black;
+$form-control-readonly: $gray-200;
+$form-control-placeholder: $gray-500;
+$form-control-border: $gray-300;
+// fieldset
+$fieldset-border: $gray-400;
+$fieldset-legend-color: #172c5e;
+// angular-tree
+$tree-focused-bg: $gray-200;
+$tree-text-color: #163c8d;
+// switch
+$switch-label-color: $white;
+$switch-label-bg: #d1d1d1; //unchecked bg
+$switch-checked-bg: #3e98d3; //checked bg
+// Ag-Grid
+$ag-color: $white;
+$ag-header-icon: $white;
+$ag-background: #172a46;
+$ag-header-row-bg: #34609f;
+$ag-even-row-bg: #1f3b64;
+$ag-odd-row-bg: #364d6d;
+$ag-selected-row-bg: #046d9b;
+$ag-paging-panel-bg: #364d6d;
+$ag-disabled-paging-btn: $gray-500;
+$ag-tooltip-bg: #c0e9fa;
+$ag-tooltip-color: $black;
+$ag-tooltip-border: $gray-400;
+
+$colors: (
+   gray: $gray-400,
+   blue: $blue,
+   red: $red,
+   black: $black,
+   white: $white,
+   gray-dark: $gray-800
+);

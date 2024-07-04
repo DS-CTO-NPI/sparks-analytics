@@ -1,0 +1,13 @@
+// Import core scss files
+@import "./core/core.scss";
+
+html,
+body {
+   font-family: $font-family;
+   background-color: $body-bg;
+   font-size: $font-size-base;
+   color: map-get($colors, $gray-900);
+   -moz-osx-font-smoothing: grayscale;
+   -webkit-font-smoothing: antialiased;
+   height: 100%;
+}

@@ -1,52 +1,80 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import { loadRemoteModule } from "@angular-architects/module-federation";
-import { AuthService } from '../app/services/authService/auth.service';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { AuthGuard } from "./auth/auth-guards/auth.guard";
+import { PageNotFoundComponent } from "./components";
+import { AppLayoutComponent } from "./containers";
 
-const routes: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: '/historian',
-  },
- /*  {
-    path: 'login',
-    loadChildren: () =>
-      import('./views/login/login.module').then((m) => m.LoginModule),
-  }, */
-  {
-    path: "historian",
-    loadChildren: () =>
-      loadRemoteModule({ type: "manifest", remoteName: "historian-viewer", exposedModule: "./RemoteHistorianViewerModule" })
-        .then((m) => m.RemoteHistorianViewerModule)
-        .catch((e) => console.log(e)),
-    canActivate: [AuthService],
-    data: {
-      objectName: "Historian",
-      controllerName:"ppc"
-    }
-  },
-  {
-    path: "trends",
-    loadChildren: () =>
-      loadRemoteModule({ type: "manifest", remoteName: "trends-viewer", exposedModule: "./RemoteTrendsViewerModule" })
-        .then((m) => m.RemoteTrendsViewerModule)
-        .catch((e) => console.log(e)),
-    canActivate: [AuthService],
-    data: {
-      objectName: "Trend Analysis",
-      controllerName:"ppc"
-    }
-  }, 
+export const routes: Routes = [
+	{
+		path: "",
+		pathMatch: "full",
+		redirectTo: "/login"
+	},
+	{
+		path: "login",
+		loadChildren: () =>
+			loadRemoteModule({ type: "manifest", remoteName: "user-management-mfe", exposedModule: "./LoginModule" })
+				.then((m) => m.LoginModule)
+				.catch((e) => console.log(e))
+	},
+
+	{
+		path: "plant-dashboard",
+		component: AppLayoutComponent,
+		children: [
+			{
+				path: "user-management",
+				loadChildren: () =>
+					loadRemoteModule({ type: "manifest", remoteName: "user-management-mfe", exposedModule: "./UserManagementModule" })
+						.then((m) => m.UserManagementModule)
+						.catch((e) => console.log(e)),
+				canActivate: [AuthGuard],
+				data: {
+					name: "User Management",
+					application: {
+						id: 6, // hems
+						name: "hems"
+					}
+				}
+			},
+			{
+				path: "alarm-viewer",
+				loadChildren: () =>
+					loadRemoteModule({ type: "manifest", remoteName: "mfealarm", exposedModule: "./RemoteAlarmsViewerModule" })
+						.then((m) => m.RemoteAlarmsViewerModule)
+						.catch((e) => console.log(e)),
+				canActivate: [AuthGuard],
+				data: {
+					controllerName: "hems",
+					name: "Alarm Viewer"
+				}
+			}
+		]
+	},
+	// {
+	// 	path: "user-management",
+	// 	loadChildren: () =>
+	// 		loadRemoteModule({ type: "manifest", remoteName: "user-management-mfe", exposedModule: "./UserManagementModule" })
+	// 			.then((m) => m.UserManagementModule)
+	// 			.catch((e) => console.log(e)),
+	// 	canActivate: [AuthGuard],
+	// 	data: {
+	// 		name: "User Management",
+	// 		application: {
+	// 			id: 6, // hems
+	// 			name: "hems"
+	// 		}
+	// 	}
+	// },
+	{
+		path: "page-not-found",
+		component: PageNotFoundComponent
+	}
 ];
 
 @NgModule({
-	imports: [
-		RouterModule.forRoot(routes, {
-			onSameUrlNavigation: "reload"
-		})
-	],
+	imports: [RouterModule.forRoot(routes)],
 	exports: [RouterModule]
 })
 export class AppRoutingModule {}
-

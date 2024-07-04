@@ -1,0 +1,75 @@
+.navbar {
+   background-color: $navbar-bg;
+   padding: 0;
+   > ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      list-style: none;
+      & li:not(:last-child) {
+         border-right: 1px solid #415891;
+         padding: 18px;
+      }
+   }
+   &-menu {
+      padding-right: 10px;
+   }
+   &-logo {
+      color: $navbar-text;
+      width: 270px;
+   }
+   &-brand {
+      color: $navbar-text;
+      letter-spacing: 1px;
+      font-size: 1.25rem;
+      font-weight: 500;
+      padding-left: 10px;
+      &:hover {
+         color: $navbar-text;
+      }
+   }
+   &-profile {
+      margin: 0 1.7rem 0 0.5rem;
+   }
+   &-collapse {
+      display: flex;
+      flex-wrap: wrap;
+   }
+}
+.secondary-nav {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   align-items: center;
+   background-color: #030f20;
+   padding: 0 20px;
+}
+
+.dropdown {
+   &-menu {
+      right: 1.3rem;
+      & > h6 {
+         font-size: 1rem;
+         font-weight: 500;
+         padding: 0.25rem 1rem;
+         margin: 0;
+      }
+      & > small {
+         padding: 0.25rem 1rem;
+      }
+   }
+   &-item {
+      &:active,
+      &:hover {
+         background-color: #20a8d8;
+         color: #fff;
+      }
+   }
+}
+
+@media (max-width: 799px) {
+   .logo {
+      display: none;
+   }
+}
