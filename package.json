@@ -16,6 +16,7 @@
 	"dependencies": {
 		"@angular-architects/module-federation": "^14.3.10",
 		"@angular/animations": "^14.2.0",
+		"@angular/cdk": "^14.2.7",
 		"@angular/common": "^14.2.0",
 		"@angular/compiler": "^14.2.0",
 		"@angular/core": "^14.2.0",
@@ -23,6 +24,8 @@
 		"@angular/platform-browser": "^14.2.0",
 		"@angular/platform-browser-dynamic": "^14.2.0",
 		"@angular/router": "^14.2.0",
+		"@angular/material": "^14.2.7",
+
 		"@ngx-translate/core": "^13.0.0",
 		"@ngx-translate/http-loader": "^7.0.0",
 		"@popperjs/core": "^2.11.8",
@@ -36,7 +39,7 @@
 		"ngx-bootstrap": "^6.1.0",
 		"ngx-spinner": "^11.0.1",
 		"ng-event-source": "^1.0.14",
-		"rxjs": "~7.8.0",
+		"rxjs": "~7.5.0",
 		"tslib": "^2.3.0",
 		"zone.js": "~0.11.4"
 	},

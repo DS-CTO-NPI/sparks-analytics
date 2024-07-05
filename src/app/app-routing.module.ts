@@ -49,7 +49,38 @@ export const routes: Routes = [
 					controllerName: "hems",
 					name: "Alarm Viewer"
 				}
-			}
+			},
+			{
+				path: "historian",
+				loadChildren: () =>
+					loadRemoteModule({ type: "manifest", remoteName: "historian-viewer", exposedModule: "./RemoteHistorianViewerModule" })
+						.then((m) => m.RemoteHistorianViewerModule)
+						.catch((e) => console.log(e)),
+				//canActivate: [AuthGuard],
+				data: {
+					name: "Historian",
+					application: {
+						id: 6, // hems
+						name: "hems"
+					}
+				}
+			},
+			{
+				path: "trends",
+				loadChildren: () =>
+					loadRemoteModule({ type: "manifest", remoteName: "trends-viewer", exposedModule: "./RemoteTrendsViewerModule" })
+						.then((m) => m.RemoteTrendsViewerModule)
+						.catch((e) => console.log(e)),
+				canActivate: [AuthGuard],
+
+				data: {
+					name: "Trend Analysis",
+					application: {
+						id: 6, // hems
+						name: "hems"
+					}
+				}
+			},
 		]
 	},
 	// {
@@ -77,4 +108,4 @@ export const routes: Routes = [
 	imports: [RouterModule.forRoot(routes)],
 	exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

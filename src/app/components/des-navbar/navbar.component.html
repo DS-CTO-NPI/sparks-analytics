@@ -10,9 +10,9 @@
 					<img src="assets/images/menu_grid.svg" width="30" height="30" class="d-inline-block align-top" alt="menu_grid" />
 				</button>
 				<div class="dropdown-menu dropdown-menu-left">
-					<button class="dropdown-item" type="button">Action</button>
-					<button class="dropdown-item" type="button">Another action</button>
-					<button class="dropdown-item" type="button">Something else here</button>
+					<button class="dropdown-item" [routerLink]="['/user-management']" type="button">User Management</button>
+					<button class="dropdown-item" [routerLink]="['/historian']" type="button">Historian</button>
+					<button class="dropdown-item" [routerLink]="['/trends']" type="button">Trend Analysis</button>
 				</div>
 			</div>
 		</li>
