@@ -11,3 +11,8 @@ body {
    -webkit-font-smoothing: antialiased;
    height: 100%;
 }
+@import "@angular/material/theming";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '@angular/cdk/overlay-prebuilt.css';
+
+@include mat-core();
