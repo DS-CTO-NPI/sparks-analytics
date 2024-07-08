@@ -2,19 +2,13 @@
 <nav class="navbar navbar-expand-lg">
 	<ul>
 		<li class="nav-item">
-			<!-- <a class="navbar-menu">
+			<button type="button" class="btn btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<img src="assets/images/menu_grid.svg" width="30" height="30" class="d-inline-block align-top" alt="menu_grid" />
-			</a> -->
-			<div class="btn">
-				<button type="button" class="btn btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<img src="assets/images/menu_grid.svg" width="30" height="30" class="d-inline-block align-top" alt="menu_grid" />
-				</button>
-				<div class="dropdown-menu dropdown-menu-left dropdown-menu-fit-content ">
-					<a class="dropdown-item" [routerLink]="['/plant-dashboard/alarm-viewer']">Alarms </a>
-					<a class="dropdown-item" [routerLink]="['user-management']">User Management</a>
-					<a class="dropdown-item" [routerLink]="['/plant-dashboard/historian']">Historian</a>
-					<a class="dropdown-item" [routerLink]="['/plant-dashboard/trends']">Trend Analysis</a>
-				  </div>
+			</button>
+			<div class="dropdown-menu dropdown-menu-left dropdown-menu-fit-content">
+				<ng-container *ngFor="let nav of navigation">
+					<a class="dropdown-item" [routerLink]="[nav.url]">{{ nav.name }}</a>
+				</ng-container>
 			</div>
 		</li>
 		<li class="nav-item logo"><img class="logo" class="navbar-logo" src="assets/images/DS_Logo_White.png" /></li>

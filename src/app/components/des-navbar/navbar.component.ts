@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { NgxSpinnerService } from "ngx-spinner";
+import { navigation } from "src/app/_nav";
 import { AuthService } from "src/app/services/auth.service";
 import { environment } from "src/environments/environment";
 
@@ -15,6 +16,8 @@ export class NavbarComponent {
 	emailAddress: string = sessionStorage.getItem(`${environment.name}-emailAddress`) || "NA";
 	version = environment.version;
 	title = environment.description;
+	navigation = navigation;
+
 	constructor(private authService: AuthService, private router: Router, private spinner: NgxSpinnerService) {}
 
 	logout = () => {

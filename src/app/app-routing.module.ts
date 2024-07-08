@@ -81,6 +81,22 @@ export const routes: Routes = [
 					}
 				}
 			},
+			{
+				path: "notification-viewer",
+				loadChildren: () =>
+					loadRemoteModule({
+						type: "manifest",
+						remoteName: "mfe-notification",
+						exposedModule: "./NotificationViewerModule"
+					})
+						.then((m) => m.NotificationViewerModule)
+						.catch((e) => console.log(e)),
+				canActivate: [AuthGuard],
+				data: {
+					controllerName: "hems",
+					name: "Notification Viewer"
+				}
+			}
 		]
 	},
 	// {
@@ -108,4 +124,4 @@ export const routes: Routes = [
 	imports: [RouterModule.forRoot(routes)],
 	exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

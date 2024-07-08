@@ -8,12 +8,14 @@ import { Breadcrumb, BreadcrumbService } from "./breadcrumb.service";
 	template: `
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item" *ngFor="let breadcrumb of breadcrumbs$ | async; let first = first; let last = last" [ngClass]="{ active: !first }">
-					<ng-container *ngIf="first; else route">
-						<a [routerLink]="breadcrumb.url">{{ breadcrumb.label }}</a>
-					</ng-container>
-					<ng-template #route>{{ breadcrumb.label }}</ng-template>
-				</li>
+				<ng-container *ngFor="let breadcrumb of breadcrumbs$ | async; let first = first; let last = last">
+					<li class="breadcrumb-item" *ngIf="breadcrumb.label !== undefined" [ngClass]="{ active: !first }">
+						<ng-container *ngIf="first; else route">
+							<a [routerLink]="breadcrumb.url">{{ breadcrumb.label }}</a>
+						</ng-container>
+						<ng-template #route>{{ breadcrumb.label }}</ng-template>
+					</li>
+				</ng-container>
 			</ol>
 		</nav>
 	`,

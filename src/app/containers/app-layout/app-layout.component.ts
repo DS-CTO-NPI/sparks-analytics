@@ -6,12 +6,10 @@ import { environment } from "src/environments/environment";
 	selector: "des-app-layout",
 	template: `
 		<des-header></des-header>
-		<main class="animated fadeIn">
-			<!-- <a [routerLink]="['user-management']">Home</a>
-			<a [routerLink]="['historian']">Historian</a>
-			<a [routerLink]="['trends']">Trend Analytics</a> -->
-
-			<router-outlet></router-outlet>
+		<main class="animated fadeIn mt-2">
+			<div class="container-fluid">
+				<router-outlet></router-outlet>
+			</div>
 		</main>
 	`,
 	styles: []

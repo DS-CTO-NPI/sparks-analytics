@@ -1,3 +1,19 @@
-$font-family: "Open Sans", sans-serif;
+@font-face {
+   font-family: "Roboto";
+   font-style: normal;
+   font-weight: 400;
+   src: url("../../../assets/fonts/roboto-regular.woff2") format("woff2");
+}
+
+@font-face {
+   font-family: "Roboto";
+   font-style: normal;
+   font-weight: 500;
+   src:
+      url("../../../assets/fonts/roboto-medium.woff2") format("woff2"),
+      url("../../../assets/fonts/roboto-medium.woff") format("woff");
+}
+
+$font-family: "Roboto", sans-serif;
 $body-bg: #0a192f;
 $font-size-base: 1rem;
