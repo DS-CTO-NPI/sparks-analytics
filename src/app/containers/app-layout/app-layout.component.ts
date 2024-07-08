@@ -7,9 +7,9 @@ import { environment } from "src/environments/environment";
 	template: `
 		<des-header></des-header>
 		<main class="animated fadeIn">
-			<a [routerLink]="['user-management']">Home</a>
+			<!-- <a [routerLink]="['user-management']">Home</a>
 			<a [routerLink]="['historian']">Historian</a>
-			<a [routerLink]="['trends']">Trend Analytics</a>
+			<a [routerLink]="['trends']">Trend Analytics</a> -->
 
 			<router-outlet></router-outlet>
 		</main>

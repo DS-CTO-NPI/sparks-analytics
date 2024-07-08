@@ -15,3 +15,21 @@ body {
 @import '@angular/cdk/overlay-prebuilt.css';
 
 @include mat-core();
+
+@font-face {
+   font-family: "Roboto";
+   font-style: normal;
+   font-weight: 400;
+   src:
+     url("../assets/fonts/roboto-regular.woff2") format("woff2"),
+     url("../assets/fonts/roboto-regular.woff2") format("woff");
+ }
+ 
+ @font-face {
+   font-family: "Roboto";
+   font-style: normal;
+   font-weight: 500;
+   src:
+     url("../assets/fonts/Roboto-Medium.woff2") format("woff2"),
+     url("../assets/fonts/Roboto-Medium.woff") format("woff");
+ }

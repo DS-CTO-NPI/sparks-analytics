@@ -9,11 +9,11 @@
 				<button type="button" class="btn btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					<img src="assets/images/menu_grid.svg" width="30" height="30" class="d-inline-block align-top" alt="menu_grid" />
 				</button>
-				<div class="dropdown-menu dropdown-menu-left">
-					<button class="dropdown-item" [routerLink]="['/user-management']" type="button">User Management</button>
-					<button class="dropdown-item" [routerLink]="['/historian']" type="button">Historian</button>
-					<button class="dropdown-item" [routerLink]="['/trends']" type="button">Trend Analysis</button>
-				</div>
+				<div class="dropdown-menu dropdown-menu-left dropdown-menu-fit-content ">
+					<a class="dropdown-item" [routerLink]="['user-management']">User Management</a>
+					<a class="dropdown-item" [routerLink]="['/plant-dashboard/historian']">Historian</a>
+					<a class="dropdown-item" [routerLink]="['/plant-dashboard/trends']">Trend Analysis</a>
+				  </div>
 			</div>
 		</li>
 		<li class="nav-item logo"><img class="logo" class="navbar-logo" src="assets/images/DS_Logo_White.png" /></li>
