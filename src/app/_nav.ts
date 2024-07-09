@@ -1,5 +1,9 @@
 export const navigation: any[] = [
 	{
+		name: "Dashboard",
+		url: "/plant-dashboard"
+	},
+	{
 		name: "User Management",
 		url: "user-management"
 	},

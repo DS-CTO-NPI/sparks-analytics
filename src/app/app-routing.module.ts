@@ -24,6 +24,21 @@ export const routes: Routes = [
 		component: AppLayoutComponent,
 		children: [
 			{
+				path: "",
+				loadChildren: () =>
+					loadRemoteModule({ type: "manifest", remoteName: "mfe-analytics-dashboard", exposedModule: "./AnalyticsDashboardModule" })
+						.then((m) => m.AnalyticsDashboardModule)
+						.catch((e) => console.log(e)),
+				// canActivate: [AuthGuard],
+				data: {
+					name: "Analytics Dashboard",
+					application: {
+						id: 6, // hems
+						name: "hems"
+					}
+				}
+			},
+			{
 				path: "user-management",
 				loadChildren: () =>
 					loadRemoteModule({ type: "manifest", remoteName: "user-management-mfe", exposedModule: "./UserManagementModule" })
