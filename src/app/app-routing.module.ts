@@ -93,9 +93,14 @@ export const routes: Routes = [
 						.catch((e) => console.log(e)),
 				canActivate: [AuthGuard],
 				data: {
-					controllerName: "hems",
-					name: "Notification Viewer"
+					name: "Notification Viewer",
+					application: {
+						id: 6, // hems
+						name: "hems"
+					}
 				}
+
+				
 			}
 		]
 	},

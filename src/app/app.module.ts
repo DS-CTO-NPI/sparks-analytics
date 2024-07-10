@@ -6,6 +6,7 @@ import { AppComponent } from "./app.component";
 import { HttpConfigInterceptor } from "./auth/interceptor/http-config.interceptor";
 import { SharedModule } from "./shared/shared.module";
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
 	declarations: [AppComponent],
