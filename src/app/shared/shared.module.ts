@@ -11,7 +11,6 @@ import { ProgressAnimationType, ToastrModule } from "ngx-toastr";
 import { ComponentsModule } from "src/app/components/components.module";
 import { CONTAINERS } from "src/app/containers";
 import { MatDatepickerModule } from "@angular/material/datepicker";
-import { NgxLoadingModule } from 'ngx-loading';
 
 @NgModule({
 	declarations: [...CONTAINERS],
@@ -21,11 +20,10 @@ import { NgxLoadingModule } from 'ngx-loading';
 		BrowserAnimationsModule,
 		HttpClientModule,
 		FormsModule,
+		MatDatepickerModule,
 		ReactiveFormsModule,
 		ModalModule.forRoot(),
 		ComponentsModule,
-		NgxLoadingModule.forRoot({}),
-		MatDatepickerModule,
 		TranslateModule.forRoot(),
 		ToastrModule.forRoot({
 			maxOpened: 1,
