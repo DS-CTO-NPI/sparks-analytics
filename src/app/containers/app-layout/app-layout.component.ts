@@ -7,7 +7,7 @@ import { environment } from "src/environments/environment";
 	template: `
 		<des-header></des-header>
 		<main class="animated fadeIn mt-2">
-			<div class="container-fluid">
+			<div class="app-container">
 				<router-outlet></router-outlet>
 			</div>
 		</main>

@@ -26,7 +26,7 @@ export class NavbarComponent {
 			this.spinner.hide();
 			if (response.statusCode == 204) {
 				this.authService.clearSessionStorageWithPrefix(`${environment.name}-`);
-				this.router.navigate(["/"]);
+				this.router.navigate(["/login"]);
 			}
 		});
 	};
