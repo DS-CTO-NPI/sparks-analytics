@@ -7,10 +7,10 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RouterModule } from "@angular/router";
 import { TranslateModule } from "@ngx-translate/core";
 import { ModalModule } from "ngx-bootstrap/modal";
-import { NgxSpinnerModule } from "ngx-spinner";
 import { ProgressAnimationType, ToastrModule } from "ngx-toastr";
 import { ComponentsModule } from "src/app/components/components.module";
 import { CONTAINERS } from "src/app/containers";
+import { MatDatepickerModule } from "@angular/material/datepicker";
 
 @NgModule({
 	declarations: [...CONTAINERS],
@@ -20,10 +20,10 @@ import { CONTAINERS } from "src/app/containers";
 		BrowserAnimationsModule,
 		HttpClientModule,
 		FormsModule,
+		MatDatepickerModule,
 		ReactiveFormsModule,
 		ModalModule.forRoot(),
 		ComponentsModule,
-		NgxSpinnerModule,
 		TranslateModule.forRoot(),
 		ToastrModule.forRoot({
 			maxOpened: 1,
