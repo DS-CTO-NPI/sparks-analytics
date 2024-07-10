@@ -6,7 +6,7 @@ import { environment } from "src/environments/environment";
 	selector: "des-app-layout",
 	template: `
 		<des-header></des-header>
-		<main class="animated fadeIn mt-2">
+		<main>
 			<div class="app-container">
 				<router-outlet></router-outlet>
 			</div>

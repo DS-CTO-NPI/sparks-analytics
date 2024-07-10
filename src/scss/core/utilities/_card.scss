@@ -1,4 +1,6 @@
 .user-card {
+   animation-duration: 0.8s;
+   animation-name: fadeIn;
    margin-bottom: 15px;
    border: 1px solid #b8b5b5a6 !important;
    &-header {

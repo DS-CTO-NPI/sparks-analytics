@@ -1,5 +1,5 @@
 {
-	"APP_TITLE": "Sparks Analytics",
+	"APP_TITLE": "SPARK Analytics",
 	"Sign In": "Sign In",
 	"Username": "Username",
 	"Password": "Password",
@@ -28,7 +28,6 @@
 	"validateCondition": "Validate Condition",
 	"addCondition": "Add Condition",
 	"updateCondition": "Update Condition",
-
 	"Loader": "Loading",
 	"subscriptionType": "Subscription Type",
 	"groupName": "Group Name",
@@ -44,7 +43,6 @@
 	"loadingData": "Loading Data...",
 	"addSubscriber": "Add Subscriber",
 	"subscriberListOfGroup": "Subscriber List of",
-
 	"update": "Update",
 	"groupEmail": "Group Email",
 	"enableSubscription": "Enable Subscription",
@@ -67,7 +65,6 @@
 	"alarmNamePH": "Enter alarm name",
 	"groupNamePH": "Enter group name",
 	"groupEmailPH": "Enter group email",
-
 	"createNotificationGroup": "Create a Notification Group",
 	"groupConfiguration": "Group Configuration",
 	"chooseAlarm": "Choose an alarm",
@@ -78,7 +75,6 @@
 	"subscribersList": "Subscribers List",
 	"create": "Create",
 	"noRowsTemplateSubscriber": "No data available, Please add a subscriber",
-
 	"notificationViewerDashboard": "Notification Viewer Dashboard",
 	"subscriberDataGroup": "Subscriber Data for Group"
 }

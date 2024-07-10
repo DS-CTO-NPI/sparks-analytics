@@ -1,10 +1,9 @@
 {
-	"APP_TITLE": "Analyse Sparks",
+	"APP_TITLE": "Analyse Spark",
 	"Sign In": "Se connecter",
 	"Username": "Nom d'utilisateur",
 	"Password": "Mot de passe",
 	"Remember me": "Souviens-toi de moi",
-
 	"alarmConfiguration": "Alarm Configuration",
 	"searchAlarm": "Search Alarm",
 	"condition": "Condition",
@@ -28,7 +27,6 @@
 	"validateCondition": "Validate Condition",
 	"addCondition": "Add Condition",
 	"updateCondition": "Update Condition",
-
 	"Loader": "chargement",
 	"subscriptionType": "Type d'abonnement",
 	"groupName": "Nom de groupe",
@@ -46,7 +44,6 @@
 	"addSubscriber": "Ajouter un abonné",
 	"subscriberListOfGroup": "Liste des abonnés du",
 	"close": "Fermer",
-
 	"update": "Mise à jour",
 	"reset": "Réinitialiser",
 	"cancel": "Annuler",
@@ -72,7 +69,6 @@
 	"alarmNamePH": "Entrez le nom de l'alarme",
 	"groupNamePH": "Entrez le nom du groupe",
 	"groupEmailPH": "Entrez l'adresse e-mail du groupe",
-
 	"createNotificationGroup": "Créer un groupe de notifications",
 	"groupConfiguration": "Configuration du groupe",
 	"chooseAlarm": "Choisissez une alarme",
@@ -83,7 +79,6 @@
 	"subscribersList": "Liste des abonnés",
 	"create": "Créer",
 	"noRowsTemplateSubscriber": "Aucune donnée disponible, veuillez ajouter un abonné",
-
 	"notificationViewerDashboard": "Tableau de bord de la visionneuse de notifications",
 	"subscriberDataGroup": "Données d'abonné pour le groupe"
 }
