@@ -129,7 +129,25 @@ export const routes: Routes = [
 					controllerName: "hems",
 					name: "Notification Viewer"
 				}
-			}
+			},
+			{
+				path: "custom-dashboard",
+				loadChildren: () =>
+					loadRemoteModule({ type: "manifest", remoteName: "custom-dashboard", exposedModule: "./CustomdashboardModule" })
+						.then((m) => m.CustomdashboardModule)
+						.catch((e) => {
+							console.log("Failed to load Custom Dashboard Micro-frontend:", e);
+							return import("./components/des-page-not-found/page-not-found.module").then((mod) => mod.PageNotFoundModule);
+						}),
+				// canActivate: [AuthGuard],
+				data: {
+					name: "Custom Dashboard",
+					application: {
+						id: 6, // hems
+						name: "hems"
+					}
+				}
+			},
 		]
 	}
 ];

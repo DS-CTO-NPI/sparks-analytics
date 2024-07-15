@@ -22,5 +22,9 @@ export const navigation: any[] = [
 	{
 		name: "Trend Analysis",
 		url: "trends"
+	},
+	{
+		name: "Custom Dashboard",
+		url: "custom-dashboard"
 	}
 ];
