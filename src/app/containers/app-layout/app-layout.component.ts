@@ -16,7 +16,8 @@ import { environment } from "src/environments/environment";
 })
 export class AppLayoutComponent implements OnInit {
 	constructor(private translate: TranslateService) {
-		this.translate.use(`${environment.name}-loggedInUserLanguage` || "en");
+	//	this.translate.use(`${environment.name}-loggedInUserLanguage` || "en");
+	this.translate.use("en");
 	}
 
 	ngOnInit(): void {}
