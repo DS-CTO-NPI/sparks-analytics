@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
 import { environment } from "src/environments/environment";
 
@@ -14,10 +14,8 @@ import { environment } from "src/environments/environment";
 	`,
 	styles: []
 })
-export class AppLayoutComponent implements OnInit {
+export class AppLayoutComponent {
 	constructor(private translate: TranslateService) {
 		this.translate.use(`${environment.name}-loggedInUserLanguage` || "en");
 	}
-
-	ngOnInit(): void {}
 }

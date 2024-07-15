@@ -4,6 +4,21 @@ import { EventSourcePolyfill } from "ng-event-source";
 import { Observable } from "rxjs";
 import { API } from "src/app/enums";
 import { getEndpointUrl } from "src/environments/environment";
+export enum AlarmType {
+	CRITICAL = "Critical",
+	MAJOR = "Major",
+	MINOR = "Minor",
+	WARNING = "Warning",
+	ALL = "All"
+}
+
+export type Alarms = {
+	[key in AlarmType]: number;
+};
+export type AlarmsCountResponse = {
+	severity: string;
+	value: number;
+};
 
 @Injectable({
 	providedIn: "root"
@@ -48,8 +63,18 @@ export class AlarmViewerService {
 			this.alarmCountEventSource = new EventSourcePolyfill(getEndpointUrl(API.getAlarmCount), options);
 
 			this.alarmCountEventSource.onmessage = (event) => {
-				let json: any = JSON.parse(event.data);
-				observer.next(json);
+				const response: any = JSON.parse(event.data);
+				const alarmTableData: any = response?.data?.length ? response.data : [];
+				const alarms = Object.fromEntries(Object.values(AlarmType).map((key) => [key, 0])) as Alarms;
+				alarmTableData.forEach((alarm: any) => {
+					const { severity } = alarm;
+					if (Object.values(AlarmType).includes(severity as AlarmType)) {
+						alarms[severity as AlarmType] = alarm.totalCount - alarm.clearedCount;
+					}
+				});
+				alarms[AlarmType.ALL] = Object.values(alarms).reduce((acc, curr) => acc + curr, 0);
+				const AlarmsCountResponse: AlarmsCountResponse[] = Object.entries(alarms).map(([severity, value]) => ({ severity, value }));
+				observer.next(AlarmsCountResponse);
 			};
 			this.alarmCountEventSource.onerror = (error: any) => {
 				if (this.alarmCountEventSource.readyState === 0) {
