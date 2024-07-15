@@ -1,0 +1,8 @@
+{
+	"mfealarm": "http://localhost:8080/mfealarm/remoteEntry.js",
+	"mfe-notification": "http://localhost:8080/remoteEntry.js",
+	"mfe-analytics-dashboard": "http://localhost:8080/remoteEntry.js",
+	"user-management-mfe": "http://localhost:8080/user-management-mfe/remoteEntry.js",
+	"historian-viewer": "http://localhost:8080/historian-viewer/remoteEntry.js",
+	"trends-viewer": "http://localhost:8080/mfe-trends/remoteEntry.js"
+}

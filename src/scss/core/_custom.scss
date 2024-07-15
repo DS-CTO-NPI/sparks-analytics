@@ -1,0 +1,20 @@
+.cursor-pointer {
+   cursor: pointer;
+}
+.fullscreen {
+   width: 100vw;
+   height: 100vh;
+   position: fixed;
+   top: 120px; /* This will be dynamically adjusted based on header height */
+   left: 0;
+   transition: top 0.3s ease-in-out;
+}
+
+.fullscreen > .user-card-body {
+   height: calc(100vh - 120px); /* Adjust this based on your header height */
+   transition: height 0.3s ease-in-out;
+}
+
+.disabled-scroll {
+   overflow: hidden;
+}

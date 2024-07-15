@@ -1,0 +1,134 @@
+<ul class="controller-list">
+	<li class="d-flex align-items-center mx-3"><button class="btn btn-primary" (click)="setPointModal.show()">Setpoint</button></li>
+	<li class="controller-list-item">
+		<div class="controller-section">
+			<div class="controller-title">Controller Status</div>
+			<div class="controller-body mt-1">
+				<div class="controller-device">
+					<img class="img-white" src="./assets/images/controller/ppc.svg" height="28" width="30" />
+				</div>
+				<div class="controller-device-status">
+					<span class="badge" [ngClass]="ppcStyle ? 'badge-success' : 'badge-danger'">{{ this.ppcStatus }}</span>
+					<p *ngIf="bmsData.unhealthybms.length != 0" class="badge-label">PPC</p>
+				</div>
+				<div class="controller-device">
+					<img class="img-white" src="./assets/images/controller/ess.svg" height="28" width="30" />
+				</div>
+				<div class="controller-device-status">
+					<span class="badge" [ngClass]="essStyle ? 'badge-success' : 'badge-danger'">{{ this.essStatus }}</span>
+					<p *ngIf="bmsData.unhealthybms.length != 0" class="badge-label">ESS</p>
+				</div>
+			</div>
+		</div>
+	</li>
+	<li class="controller-list-item">
+		<div class="controller-section">
+			<div class="controller-title">Plant Operation mode</div>
+			<div class="controller-body mt-1">
+				<div class="controller-device">
+					<img class="img-white" src="./assets/images/controller/industry.png" height="28" width="30" />
+				</div>
+				<div class="controller-device-status">
+					<div class="controller-status-label ml-2">{{ modeOfOperation | uppercase }}</div>
+				</div>
+			</div>
+		</div>
+	</li>
+	<li class="controller-list-item">
+		<div class="controller-section">
+			<div class="controller-title">BMS Status</div>
+			<div class="controller-body">
+				<div class="controller-device">
+					<img src="./assets/images/controller/bms.svg" height="28" width="30" />
+				</div>
+				<div class="controller-device-status">
+					<span class="badge" [ngClass]="bmsData.bmsStyle ? 'badge-success' : 'badge-danger'">{{ bmsStatus }}</span>
+					<p *ngIf="bmsData.unhealthybms.length != 0" class="badge-label">Unavailable</p>
+				</div>
+			</div>
+		</div>
+	</li>
+	<li class="controller-list-item">
+		<div class="controller-section">
+			<div class="controller-title">Communication Status</div>
+			<div class="controller-body" [class.mt-1]="pcsStatus == 'Good'">
+				<div class="controller-device">
+					<img src="./assets/images/controller/communication.svg" height="28" width="30" />
+				</div>
+				<div class="controller-device-status">
+					<ng-container *ngIf="pcsStatus == 'Good'; else badStatus">
+						<div class="controller-status-label ml-2">{{ pcsStatus | uppercase }}</div>
+					</ng-container>
+					<ng-template #badStatus>
+						<span class="badge" [ngClass]="pcsData.pcsStyle ? 'badge-success' : 'badge-danger'">{{ bmsStatus }}</span>
+						<p *ngIf="pcsData.unhealthypcs.length != 0" class="badge-label">Unavailable</p>
+					</ng-template>
+				</div>
+			</div>
+		</div>
+	</li>
+	<li class="controller-list-item">
+		<button class="p-0" (click)="toggleEmergency()">
+			<img
+				src="https://media.istockphoto.com/id/1263697641/vector/mushroom-push-button-switch-emergency-stop-power-off-failure-prevention-660v.jpg?s=170667a&w=0&k=20&c=pXKxN-I9-6nzYz5cDeCtHddUC0wNW1o9hw0avIcPsgA="
+				height="65"
+				width="70"
+				alt="" />
+		</button>
+	</li>
+</ul>
+
+<!-- Emergency modal -->
+<div
+	bsModal
+	#essEmergencyModal="bs-modal"
+	[config]="{ backdrop: 'static' }"
+	class="modal fade"
+	tabindex="-1"
+	role="dialog"
+	aria-labelledby="dialog-sizes-name2">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h6 id="dialog-sizes-name2" class="modal-title pull-left" translate>{{ "Confirmation" }}</h6>
+				<button type="button" class="close pull-right text-white" aria-label="Close" (click)="essEmergencyModal.hide()">
+					<span aria-hidden="true" class="">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body text-center">
+				<label>{{ "Do you want to" }} {{ this.isEmergencyName }} {{ "Emergency Stop?" }}</label>
+				<div class="text-center my-3">
+					<button type="button" class="btn btn-success btn-sm mr-4" (click)="getEmergencyStatus()" translate>
+						{{ "Yes" }}
+					</button>
+					<button type="button" class="btn btn-secondary btn-sm" (click)="essEmergencyModal.hide()" translate>
+						{{ "No" }}
+					</button>
+					<div class="mt-3" *ngIf="this.isEmergencyName == 'release'" style="text-align: justify">
+						<strong>
+							{{ "Note:Please initiate PLC Reset and provide required mode of operation and setpoint to resume operation" }}
+						</strong>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- setpoint modal -->
+<div class="modal fade" bsModal #setPointModal="bs-modal" [config]="{ backdrop: 'static' }" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name">
+	<div class="modal-dialog modal-xl" style="max-width: 1343px">
+		<div class="modal-content display-width">
+			<div class="modal-header">
+				<h6 id="dialog-static-name" class="modal-title ml-2 mb-0" style="justify-content: center">HEMS Setpoints</h6>
+				<button type="button" class="close text-white" aria-label="Close" (click)="setPointModal.hide()">
+					<span aria-hidden="true" class="">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body p-0">
+				<div class="card" style="border: none !important">
+					<!-- <app-setpoints-dialog *ngIf="showSetpointModel" (setpointChange)="setpointUpdate($event)"></app-setpoints-dialog> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

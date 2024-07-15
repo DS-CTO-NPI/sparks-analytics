@@ -1,0 +1,73 @@
+.form-group {
+   margin-bottom: 0.4rem !important;
+}
+.form-control,
+.form-control-sm {
+   border-radius: 0 !important;
+   color: $form-control-color;
+   text-overflow: ellipsis;
+   &:focus,
+   &.is-invalid:focus {
+      box-shadow: none !important;
+   }
+   &::placeholder {
+      color: $form-control-placeholder;
+   }
+   &:disabled,
+   &[readonly] {
+      background-color: $form-control-readonly;
+      border: none;
+      opacity: 1;
+      pointer-events: none;
+   }
+}
+
+.form-control.is-valid:not(#confirmPassword),
+.was-validated .form-control:valid:not(#confirmPassword) {
+   background-image: none !important;
+   border-color: $form-control-border;
+   padding-right: 0.5em !important;
+}
+
+.was-validated .form-control:invalid:focus {
+   box-shadow: none !important;
+}
+
+.form-label {
+   font-size: 0.84rem;
+   margin: 5px 0px;
+   &.required::after {
+      content: " *";
+      color: $red;
+   }
+}
+
+// fieldSet
+fieldset {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   border: 1px solid $fieldset-border;
+   transition: 0.5s all ease-in;
+   padding: 1rem 1rem;
+   margin-bottom: 10px;
+   & legend {
+      float: none;
+      width: auto;
+      padding: 0.5rem 0.5rem 0.5rem 0;
+      font-size: 1rem;
+      font-weight: 500;
+      color: $fieldset-legend-color;
+      margin-bottom: 0;
+   }
+   &:hover {
+      border: 1px solid $fieldset-legend-color;
+   }
+}
+.fieldset-container {
+   margin-top: -16px;
+}
+
+a {
+   cursor: pointer;
+}
