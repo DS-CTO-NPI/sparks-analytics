@@ -12,7 +12,8 @@ export const environment = {
 	description: app.description,
 	version: app.version,
 	baseUrl: getEnvironmentUrl(),
-	production: false
+	production: false,
+	env: "dev"
 };
 
 export const getEndpointUrl = (url: string): string => `${environment.baseUrl}${url}`;

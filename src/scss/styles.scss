@@ -1,13 +1,18 @@
 // Import core scss files
 @import "./core/core.scss";
 
+@import "@angular/material/theming";
+@import "@angular/cdk/overlay-prebuilt.css";
+@include mat-core();
+
 html,
 body {
-   font-family: $font-family;
-   background-color: $body-bg;
-   font-size: $font-size-base;
-   color: map-get($colors, $gray-900);
-   -moz-osx-font-smoothing: grayscale;
-   -webkit-font-smoothing: antialiased;
-   height: 100%;
+  font-family: $font-family;
+  background-color: $body-bg;
+  font-size: $font-size-base;
+  color: map-get($colors, $gray-900);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+  transition: all 0.4s ease-in;
 }

@@ -2,18 +2,13 @@
 <nav class="navbar navbar-expand-lg">
 	<ul>
 		<li class="nav-item">
-			<!-- <a class="navbar-menu">
+			<button type="button" class="btn btn-block p-0 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<img src="assets/images/menu_grid.svg" width="30" height="30" class="d-inline-block align-top" alt="menu_grid" />
-			</a> -->
-			<div class="btn">
-				<button type="button" class="btn btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<img src="assets/images/menu_grid.svg" width="30" height="30" class="d-inline-block align-top" alt="menu_grid" />
-				</button>
-				<div class="dropdown-menu dropdown-menu-left">
-					<button class="dropdown-item" type="button">Action</button>
-					<button class="dropdown-item" type="button">Another action</button>
-					<button class="dropdown-item" type="button">Something else here</button>
-				</div>
+			</button>
+			<div class="dropdown-menu dropdown-menu-left dropdown-menu-fit-content">
+				<ng-container *ngFor="let nav of navigation">
+					<a class="dropdown-item" [routerLink]="[nav.url]">{{ nav.name }}</a>
+				</ng-container>
 			</div>
 		</li>
 		<li class="nav-item logo"><img class="logo" class="navbar-logo" src="assets/images/DS_Logo_White.png" /></li>

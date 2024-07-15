@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
 	selector: "des-header",
@@ -9,11 +9,6 @@ import { Component, OnInit } from "@angular/core";
 				<des-breadcrumb></des-breadcrumb>
 			</section>
 		</header>
-	`,
-	styles: []
+	`
 })
-export class DesHeaderComponent implements OnInit {
-	constructor() {}
-
-	ngOnInit(): void {}
-}
+export class DesHeaderComponent {}
