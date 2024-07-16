@@ -4,5 +4,6 @@
 	"mfe-analytics-dashboard": "http://localhost:4203/remoteEntry.js",
 	"user-management-mfe": "http://localhost:4204/remoteEntry.js",
 	"historian-viewer": "http://localhost:4206/remoteEntry.js",
-	"trends-viewer": "http://localhost:4207/remoteEntry.js"
+	"trends-viewer": "http://localhost:4207/remoteEntry.js",
+	"mfe-custom-dashboard": "http://localhost:4208/remoteEntry.js"
 }
