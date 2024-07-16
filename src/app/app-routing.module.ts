@@ -33,9 +33,9 @@ export const routes: Routes = [
 							console.info("Failed to load Analytics Dashboard Micro-frontend:", e);
 							return import("./components/des-page-not-found/page-not-found.module").then((mod) => mod.PageNotFoundModule);
 						}),
-				// canActivate: [AuthGuard],
+				canActivate: [AuthGuard],
 				data: {
-					name: "Analytics Dashboard",
+					name: "Plant Dashboard",
 					application: {
 						id: 6, // hems
 						name: "hems"

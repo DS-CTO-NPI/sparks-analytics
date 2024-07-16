@@ -1,0 +1,29 @@
+// //  padding variables
+// $padding-left-first: 15px;
+// $padding-right: 0px;
+
+// //  mixin for column padding
+// @mixin column-padding($padding-left, $padding-right) {
+//    padding-left: $padding-left;
+//    padding-right: $padding-right;
+// }
+
+// // SCSS for columns
+// .row {
+//    display: flex; // Ensure the row uses flexbox layout
+//    // Select all columns that start with 'col'
+//    [class*="col"] {
+//       // Apply padding to all columns
+//       @include column-padding($padding-right, $padding-left-first);
+
+//       // Remove left padding from the first column
+//       &:first-child {
+//          padding-left: $padding-left-first;
+//       }
+
+//       // Remove right padding from the last column
+//       &:last-child {
+//          padding-left: 0;
+//       }
+//    }
+// }

@@ -1,8 +1,8 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 
 import { Observable, throwError } from "rxjs";
-import { catchError, finalize, map } from "rxjs/operators";
+import { catchError } from "rxjs/operators";
 
 import { Router } from "@angular/router";
 import { environment } from "src/environments/environment";
@@ -30,18 +30,25 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 		});
 
 		return next.handle(request).pipe(
-			map((event) => {
-				return event;
-			}),
-			catchError((err) => {
-				if (err.status === 401) {
+			catchError((error: HttpErrorResponse) => {
+				let errorMessage = "";
+				if (error.error instanceof ErrorEvent) {
+					// client-side error
+					errorMessage = `Error: ${error.error.message}`;
+				} else {
+					// server-side error
+					errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+				}
+
+				// Handle specific errors like 401 Unauthorized
+				if (error.status === 401) {
 					this.router.navigate(["/"]);
 				}
 
-				const error = err?.error?.message || err?.statusText;
-				return throwError(() => error);
-			}),
-			finalize(() => {})
+				return throwError(() => {
+					"Service Error. Please try again";
+				});
+			})
 		);
 	}
 }

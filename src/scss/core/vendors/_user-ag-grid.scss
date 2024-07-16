@@ -1,8 +1,3 @@
-@mixin ag-props($background-color, $text-color) {
-   background-color: $background-color !important;
-   color: $text-color !important;
-}
-
 .ag-root {
    background-color: $ag-background;
    color: $ag-color;
@@ -22,20 +17,20 @@
    background-color: rgb(168, 27, 27) !important;
 }
 .ag-header-row {
-   @include ag-props($ag-header-row-bg, $ag-color);
+   @include set-colors($ag-header-row-bg, $ag-color);
 }
 .ag-row-even {
-   @include ag-props($ag-even-row-bg, $ag-color);
+   @include set-colors($ag-even-row-bg, $ag-color);
 }
 .ag-row-odd {
-   @include ag-props($ag-odd-row-bg, $ag-color);
+   @include set-colors($ag-odd-row-bg, $ag-color);
 }
 .ag-row-selected {
-   @include ag-props($ag-selected-row-bg, $ag-color);
+   @include set-colors($ag-selected-row-bg, $ag-color);
 }
 .ag-paging-panel {
    font-size: 1rem;
-   @include ag-props($ag-paging-panel-bg, $ag-color);
+   @include set-colors($ag-paging-panel-bg, $ag-color);
 }
 .ag-paging-button.ag-disabled {
    color: $ag-disabled-paging-btn !important;
