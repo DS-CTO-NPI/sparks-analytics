@@ -1,0 +1,43 @@
+.user-card {
+   animation-duration: 0.8s;
+   animation-name: fadeIn;
+   margin-bottom: 15px;
+   border: 1px solid #b8b5b5a6 !important;
+   &-header {
+      padding: 7px 15px;
+      background: $card-header-bg !important;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+      color: $white !important;
+      height: 44px;
+      &-btn {
+         padding: 2px 15px !important;
+         color: $white;
+         font-size: 14px;
+      }
+   }
+   &-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: $white;
+      margin-bottom: 10px;
+      &-text {
+         text-align: center;
+         flex-grow: 1;
+      }
+   }
+   &-body {
+      background: $card-body-bg;
+      padding: 0;
+   }
+   &-filter {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 14px;
+   }
+}

@@ -1,0 +1,50 @@
+.ag-root {
+   background-color: $ag-background;
+   color: $ag-color;
+   font-size: 1rem;
+}
+.ag-root-wrapper {
+   border: none !important;
+   width: 100%;
+}
+.ag-header-icon {
+   color: $ag-header-icon;
+}
+.ag-row .ag-cell {
+   align-items: center;
+}
+.ag-row .ag-cell-data-changed {
+   background-color: rgb(168, 27, 27) !important;
+}
+.ag-header-row {
+   @include set-colors($ag-header-row-bg, $ag-color);
+}
+.ag-row-even {
+   @include set-colors($ag-even-row-bg, $ag-color);
+}
+.ag-row-odd {
+   @include set-colors($ag-odd-row-bg, $ag-color);
+}
+.ag-row-selected {
+   @include set-colors($ag-selected-row-bg, $ag-color);
+}
+.ag-paging-panel {
+   font-size: 1rem;
+   @include set-colors($ag-paging-panel-bg, $ag-color);
+}
+.ag-paging-button.ag-disabled {
+   color: $ag-disabled-paging-btn !important;
+}
+.ag-tooltip {
+   background-color: $ag-tooltip-bg;
+   color: $ag-tooltip-color;
+   border-radius: 2px;
+   padding: 8px 14px;
+   border-width: 1px;
+   border-style: solid;
+   border-color: $ag-tooltip-border;
+   transition: opacity 1s;
+   width: 180px;
+   z-index: 99999;
+   font-size: 13px;
+}
