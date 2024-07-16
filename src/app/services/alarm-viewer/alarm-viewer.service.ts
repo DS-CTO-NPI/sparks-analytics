@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { EventSourcePolyfill } from "ng-event-source";
 import { Observable } from "rxjs";
 import { API } from "src/app/enums";
-import { getEndpointUrl } from "src/environments/environment";
+import { environment, getEndpointUrl } from "src/environments/environment";
 export enum AlarmType {
 	CRITICAL = "Critical",
 	MAJOR = "Major",
@@ -33,18 +33,19 @@ export class AlarmViewerService {
 	constructor(private http: HttpClient) {}
 
 	public getOptions(controllerName: string) {
-		const dbName: string = sessionStorage.getItem("dbName") || controllerName;
+		const appName: string = environment.name || controllerName;
+		const authToken: string | null = sessionStorage.getItem(`${appName}-authToken`) || null;
 		return {
 			headers: {
-				Authorization: "Bearer" + " " + sessionStorage.getItem("hems-authToken"),
+				Authorization: `Bearer ${authToken}`,
 				"Cache-Control": "no-cache, no-store, must-revalidate",
 				"X-Content-Type-Options": "nosniff",
 				"X-Frame-Options": "DENY",
 				"Access-Control-Allow-Origin": "*",
-				defaultDb: "hems",
-				database: dbName,
-				hostDB: "hems",
-				applicationId: "6"
+				defaultDb: appName,
+				database: appName,
+				hostDB: appName,
+				applicationId: environment.appId
 			}
 		};
 	}

@@ -11,9 +11,8 @@ import { environment } from "src/environments/environment";
 export class HttpConfigInterceptor implements HttpInterceptor {
 	constructor(private router: Router) {}
 	intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-		const appName: string = environment.name;
-		const databaseName: string = "" || appName;
-		const authToken = sessionStorage.getItem(`${appName}-authToken`);
+		const appName: string = environment.name || "";
+		const authToken: string | null = sessionStorage.getItem(`${appName}-authToken`) || null;
 
 		request = request.clone({
 			setHeaders: {
@@ -22,8 +21,8 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 				"X-Content-Type-Options": "nosniff",
 				"X-Frame-Options": "DENY",
 				"Access-Control-Allow-Origin": "*",
-				defaultDb: "hems",
-				database: databaseName,
+				defaultDb: appName,
+				database: appName,
 				hostDB: appName,
 				applicationId: environment.appId
 			}

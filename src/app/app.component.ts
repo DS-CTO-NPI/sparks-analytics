@@ -10,7 +10,9 @@ export class AppComponent {
 	constructor() {
 		const application = {
 			NAME: environment.name,
-			DESCRIPTION: environment.description
+			DESCRIPTION: environment.description,
+			VERSION: environment.version,
+			APP_ID: environment.appId
 		};
 		sessionStorage.setItem("application", JSON.stringify(application));
 	}
