@@ -26,6 +26,7 @@ import { CONTAINERS } from "src/app/containers";
 		ModalModule.forRoot(),
 		ComponentsModule,
 		TranslateModule.forRoot({
+			defaultLanguage: "en",
 			loader: {
 				provide: TranslateLoader,
 				useFactory: (http: HttpClient) => new TranslateHttpLoader(http, "./assets/i18n/", ".json"),
