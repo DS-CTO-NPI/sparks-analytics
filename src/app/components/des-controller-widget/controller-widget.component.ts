@@ -4,7 +4,7 @@ import { ModalDirective } from "ngx-bootstrap/modal";
 import { ToastrService } from "ngx-toastr";
 import { Observable, Subject, takeUntil } from "rxjs";
 import { ControllerTypeData } from "src/app/model/controller/Controller";
-import { ControllerService } from "src/app/services/controller/controller.service";
+import { ControllerService } from "./controller-widget-service/controller-widget.service";
 
 @Component({
 	selector: "des-controller-widget",
