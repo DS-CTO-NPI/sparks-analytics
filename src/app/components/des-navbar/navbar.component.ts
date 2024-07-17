@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { NgxSpinnerService } from "ngx-spinner";
 import { navigation } from "src/app/_nav";
-import { AuthService } from "src/app/services/auth.service";
+import { AuthService } from "src/app/services/auth/auth.service";
 import { environment } from "src/environments/environment";
 
 @Component({
