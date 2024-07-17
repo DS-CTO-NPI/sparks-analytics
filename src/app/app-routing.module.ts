@@ -133,7 +133,7 @@ export const routes: Routes = [
 			{
 				path: "custom-dashboard",
 				loadChildren: () =>
-					loadRemoteModule({ type: "manifest", remoteName: "custom-dashboard", exposedModule: "./CustomdashboardModule" })
+					loadRemoteModule({ type: "manifest", remoteName: "mfe-custom-dashboard", exposedModule: "./CustomdashboardModule" })
 						.then((m) => m.CustomdashboardModule)
 						.catch((e) => {
 							console.log("Failed to load Custom Dashboard Micro-frontend:", e);
@@ -147,7 +147,7 @@ export const routes: Routes = [
 						name: "hems"
 					}
 				}
-			},
+			}
 		]
 	}
 ];
