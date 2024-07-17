@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AuthGuard } from "./auth/auth-guards/auth.guard";
 import { AppLayoutComponent } from "./containers";
+import { PageNotFoundComponent } from "./components/des-page-not-found";
 
 export const routes: Routes = [
 	{
@@ -134,7 +135,26 @@ export const routes: Routes = [
 				}
 
 				
+			},
+			{
+				path: "custom-dashboard",
+				loadChildren: () =>
+					loadRemoteModule({ type: "manifest", remoteName: "mfe-custom-dashboard", exposedModule: "./CustomdashboardModule" })
+						.then((m) => m.CustomdashboardModule)
+						.catch((e) => {
+							console.log("Failed to load Custom Dashboard Micro-frontend:", e);
+							return import("./components/des-page-not-found/page-not-found.module").then((mod) => mod.PageNotFoundModule);
+						}),
+				// canActivate: [AuthGuard],
+				data: {
+					name: "Custom Dashboard",
+					application: {
+						id: 6, // hems
+						name: "hems"
+					}
+				}
 			}
+
 		]
 	},
 	// {
