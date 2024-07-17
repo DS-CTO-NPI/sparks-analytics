@@ -126,29 +126,35 @@ export const routes: Routes = [
 						}),
 				canActivate: [AuthGuard],
 				data: {
-					controllerName: "hems",
-					name: "Notification Viewer"
-				}
-			},
-			{
-				path: "custom-dashboard",
-				loadChildren: () =>
-					loadRemoteModule({ type: "manifest", remoteName: "mfe-custom-dashboard", exposedModule: "./CustomdashboardModule" })
-						.then((m) => m.CustomdashboardModule)
-						.catch((e) => {
-							console.log("Failed to load Custom Dashboard Micro-frontend:", e);
-							return import("./components/des-page-not-found/page-not-found.module").then((mod) => mod.PageNotFoundModule);
-						}),
-				// canActivate: [AuthGuard],
-				data: {
-					name: "Custom Dashboard",
+					name: "Notification Viewer",
 					application: {
 						id: 6, // hems
 						name: "hems"
 					}
 				}
+
+				
 			}
 		]
+	},
+	// {
+	// 	path: "user-management",
+	// 	loadChildren: () =>
+	// 		loadRemoteModule({ type: "manifest", remoteName: "user-management-mfe", exposedModule: "./UserManagementModule" })
+	// 			.then((m) => m.UserManagementModule)
+	// 			.catch((e) => console.log(e)),
+	// 	canActivate: [AuthGuard],
+	// 	data: {
+	// 		name: "User Management",
+	// 		application: {
+	// 			id: 6, // hems
+	// 			name: "hems"
+	// 		}
+	// 	}
+	// },
+	{
+		path: "page-not-found",
+		component: PageNotFoundComponent
 	}
 ];
 

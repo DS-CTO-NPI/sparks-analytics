@@ -7,6 +7,7 @@ import { HttpConfigInterceptor } from "./auth/interceptor/http-config.intercepto
 import { SharedModule } from "./shared/shared.module";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
 	declarations: [AppComponent],
