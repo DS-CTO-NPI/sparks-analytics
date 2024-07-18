@@ -16,6 +16,7 @@ import { environment } from "src/environments/environment";
 })
 export class AppLayoutComponent {
 	constructor(private translate: TranslateService) {
-		this.translate.use(`${environment.name}-loggedInUserLanguage` || "en");
+		const loggedInUserLanguage: string = sessionStorage.getItem(`${environment.name}-loggedInUserLanguage`) || "en";
+		this.translate.use(loggedInUserLanguage);
 	}
 }
