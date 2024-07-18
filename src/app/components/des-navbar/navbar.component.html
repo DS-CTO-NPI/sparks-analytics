@@ -30,8 +30,13 @@
 		</form>
 		<div class="navbar-profile">
 			<div class="btn-group">
-				<a type="button" class="btn btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<img src="assets/images/profile_avatar.png" width="50" class="rounded-circle" alt="profile_avatar" />
+				<a type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<img
+						[src]="'data:image/jpeg;base64,' + photo"
+						onerror="this.src='assets/images/profile_avatar.png'"
+						width="50"
+						class="rounded-circle"
+						alt="profile_avatar" />
 				</a>
 				<div class="dropdown-menu dropdown-menu-right">
 					<h6>{{ loginId }}</h6>

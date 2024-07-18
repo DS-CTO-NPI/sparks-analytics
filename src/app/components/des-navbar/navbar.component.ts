@@ -17,6 +17,7 @@ export class NavbarComponent {
 	title = environment.description;
 	navigation = NAV; // hard-coded navigation
 	navData: any = JSON.parse(sessionStorage.getItem(`${environment.name}-navigation`) || "[]"); // navigation data received from server
+	photo = sessionStorage.getItem(`${environment.name}-photo`) || "";
 
 	constructor(private authService: AuthService, private router: Router, private spinner: NgxSpinnerService) {}
 
