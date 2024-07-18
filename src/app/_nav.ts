@@ -1,30 +1,52 @@
-export const navigation: any[] = [
+export const NAV: any[] = [
 	{
 		name: "Dashboard",
-		url: "/plant-dashboard"
+		routerLink: "/plant-dashboard",
+		isLanding: true,
+		children: []
 	},
 	{
-		name: "User Management",
-		url: "user-management"
+		name: "Administration",
+		routerLink: "/administration",
+		isLanding: false,
+		children: [
+			{
+				name: "User Management",
+				routerLink: "user-management"
+			}
+		]
 	},
 	{
 		name: "Alarm Viewer",
-		url: "alarm-viewer"
+		routerLink: "alarm-viewer",
+		isLanding: false,
+		children: []
 	},
 	{
 		name: "Notification Viewer",
-		url: "notification-viewer"
+		routerLink: "notification-viewer",
+		isLanding: false,
+		children: []
 	},
 	{
 		name: "Historian",
-		url: "historian"
-	},
-	{
-		name: "Trend Analysis",
-		url: "trends"
+		routerLink: "/historian",
+		isLanding: false,
+		children: [
+			{
+				name: "Historian Configuration",
+				routerLink: "historian"
+			},
+			{
+				name: "Trend Analysis",
+				routerLink: "trends"
+			}
+		]
 	},
 	{
 		name: "Custom Dashboard",
-		url: "custom-dashboard"
+		routerLink: "custom-dashboard",
+		isLanding: false,
+		children: []
 	}
 ];
