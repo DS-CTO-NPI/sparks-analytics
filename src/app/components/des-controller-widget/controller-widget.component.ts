@@ -3,8 +3,8 @@ import { Router } from "@angular/router";
 import { ModalDirective } from "ngx-bootstrap/modal";
 import { ToastrService } from "ngx-toastr";
 import { Observable, Subject, takeUntil } from "rxjs";
-import { ControllerTypeData } from "src/app/model/controller/Controller";
-import { ControllerService } from "./controller-widget-service/controller-widget.service";
+import { ControllerTypeData } from "./model/Controller";
+import { ControllerService } from "./service/controller-widget.service";
 
 @Component({
 	selector: "des-controller-widget",
