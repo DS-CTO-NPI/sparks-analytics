@@ -63,7 +63,7 @@ export const routes: Routes = [
 			{
 				path: "alarm-viewer",
 				loadChildren: () =>
-					loadRemoteModule({ type: "manifest", remoteName: "mfealarm", exposedModule: "./RemoteAlarmsViewerModule" })
+					loadRemoteModule({ type: "manifest", remoteName: "mfe-alarm", exposedModule: "./RemoteAlarmsViewerModule" })
 						.then((m) => m.RemoteAlarmsViewerModule)
 						.catch((e) => {
 							console.info("Failed to load Alarm Micro-frontend:", e);
