@@ -3,7 +3,7 @@
 	"mfe-notification": "http://localhost:8080/mfe-notification/remoteEntry.js",
 	"mfe-analytics-dashboard": "http://localhost:8080/mfe-analytics-dashboard/remoteEntry.js",
 	"user-management-mfe": "http://localhost:8080/user-management-mfe/remoteEntry.js",
-	"historian-viewer": "http://localhost:8080/historian-viewer/remoteEntry.js",
-	"trends-viewer": "http://localhost:8080/mfe-trends/remoteEntry.js",
+	"historian-viewer": "http://localhost:8080/mfe-historian/remoteEntry.js",
+	"mfe-trends": "http://localhost:8080/mfe-trends/remoteEntry.js",
 	"mfe-custom-dashboard": "http://localhost:8080/mfe-custom-dashboard/remoteEntry.js"
 }
