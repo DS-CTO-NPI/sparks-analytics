@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Observable, of } from "rxjs";
-import { AlarmsCountResponse, AlarmViewerService } from "src/app/services/alarm-viewer/alarm-viewer.service";
+import { AlarmsCountResponse, AlarmViewerService } from "./alarm-viewer.service";
 
 @Component({
 	selector: "des-alarm-widget",

@@ -5,15 +5,11 @@
 			<button type="button" class="btn btn-block p-0 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<img src="assets/images/menu_grid.svg" width="30" height="30" class="d-inline-block align-top" alt="menu_grid" />
 			</button>
-			<div class="dropdown-menu dropdown-menu-left dropdown-menu-fit-content">
-				<ng-container *ngFor="let nav of navigation">
-					<a class="dropdown-item" [routerLink]="[nav.url]">{{ nav.name }}</a>
-				</ng-container>
-			</div>
+			<div class="dropdown-menu"><ng-container [ngTemplateOutlet]="navTemplate"></ng-container></div>
 		</li>
 		<li class="nav-item logo"><img class="logo" class="navbar-logo" src="assets/images/DS_Logo_White.png" /></li>
 		<li class="nav-item">
-			<a class="navbar-brand" [routerLink]="['/plant-dashboard']">{{ title }}</a>
+			<a class="navbar-brand" [routerLink]="getLandingPage()">{{ title }}</a>
 		</li>
 	</ul>
 	<button
@@ -34,8 +30,13 @@
 		</form>
 		<div class="navbar-profile">
 			<div class="btn-group">
-				<a type="button" class="btn btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<img src="assets/images/profile_avatar.png" width="50" class="rounded-circle" alt="profile_avatar" />
+				<a type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<img
+						[src]="'data:image/jpeg;base64,' + photo"
+						onerror="this.src='assets/images/profile_avatar.png'"
+						width="50"
+						class="rounded-circle"
+						alt="profile_avatar" />
 				</a>
 				<div class="dropdown-menu dropdown-menu-right">
 					<h6>{{ loginId }}</h6>
@@ -50,7 +51,33 @@
 	</div>
 </nav>
 
-<!-- Modal -->
+<!-- Navigation template -->
+<ng-template #navTemplate>
+	<ng-container *ngFor="let nav of navigation">
+		<!-- show menu only if it has no children -->
+		<ng-container *ngIf="nav.children && !nav.children.length; else showSubMenu">
+			<li>
+				<a class="dropdown-item" [routerLink]="[nav.routerLink]" [routerLinkActive]="['active']">{{ nav.name }}</a>
+			</li>
+		</ng-container>
+		<!-- show menu with sub menu only if it has children -->
+		<ng-template #showSubMenu>
+			<li class="dropdown-submenu">
+				<a class="dropdown-item dropdown-toggle d-flex justify-content-between align-items-center" data-toggle="dropdown">
+					{{ nav.name }}
+					<span class="fa fa-chevron-right"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<ng-container *ngFor="let subNav of nav.children">
+						<a class="dropdown-item" [routerLink]="[subNav.routerLink]" [routerLinkActive]="['active']">{{ subNav.name }}</a>
+					</ng-container>
+				</ul>
+			</li>
+		</ng-template>
+	</ng-container>
+</ng-template>
+
+<!-- About Modal -->
 <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">

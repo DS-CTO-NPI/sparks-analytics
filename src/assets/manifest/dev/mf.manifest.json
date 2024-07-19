@@ -1,5 +1,5 @@
 {
-	"mfealarm": "http://localhost:4201/remoteEntry.js",
+	"mfe-alarm": "http://localhost:4201/remoteEntry.js",
 	"mfe-notification": "http://localhost:4202/remoteEntry.js",
 	"mfe-analytics-dashboard": "http://localhost:4203/remoteEntry.js",
 	"user-management-mfe": "http://localhost:4204/remoteEntry.js",

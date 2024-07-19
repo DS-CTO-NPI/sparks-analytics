@@ -1,14 +1,13 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { NgxSpinnerService } from "ngx-spinner";
-import { navigation } from "src/app/_nav";
-import { AuthService } from "src/app/services/auth/auth.service";
+import { NAV } from "src/app/_nav";
 import { environment } from "src/environments/environment";
+import { AuthService } from "./auth/auth.service";
 
 @Component({
 	selector: "des-navbar",
-	templateUrl: "./navbar.component.html",
-	styleUrls: ["./navbar.component.scss"]
+	templateUrl: "./navbar.component.html"
 })
 export class NavbarComponent {
 	loginId: string = sessionStorage.getItem(`${environment.name}-authenticatedUser`) || "NA";
@@ -16,7 +15,9 @@ export class NavbarComponent {
 	emailAddress: string = sessionStorage.getItem(`${environment.name}-emailAddress`) || "NA";
 	version = environment.version;
 	title = environment.description;
-	navigation = navigation;
+	navigation = NAV; // hard-coded navigation
+	navData: any = JSON.parse(sessionStorage.getItem(`${environment.name}-navigation`) || "[]"); // navigation data received from server
+	photo = sessionStorage.getItem(`${environment.name}-photo`) || "";
 
 	constructor(private authService: AuthService, private router: Router, private spinner: NgxSpinnerService) {}
 
@@ -30,4 +31,6 @@ export class NavbarComponent {
 			}
 		});
 	};
+
+	getLandingPage = (): string => (this.navData && this.navData.length > 0 ? this.navData.find((item: any) => item.isLanding === true)?.routerLink || "" : "");
 }
