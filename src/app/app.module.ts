@@ -11,14 +11,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
 	declarations: [AppComponent],
-	imports: [SharedModule, AppRoutingModule,
-		TranslateModule.forRoot({
-		loader: {
-		  provide: TranslateLoader,
-			useFactory: HttpLoaderFactory,
-			deps: [HttpClient]
-		}
-	  }) ],
+	imports: [SharedModule, AppRoutingModule],
 	providers: [
 		{
 			provide: LocationStrategy,
