@@ -3,7 +3,6 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AuthGuard } from "./auth/auth-guards/auth.guard";
 import { AppLayoutComponent } from "./containers";
-import { PageNotFoundComponent } from "./components/des-page-not-found";
 
 export const routes: Routes = [
 	{
@@ -156,25 +155,6 @@ export const routes: Routes = [
 			}
 
 		]
-	},
-	// {
-	// 	path: "user-management",
-	// 	loadChildren: () =>
-	// 		loadRemoteModule({ type: "manifest", remoteName: "user-management-mfe", exposedModule: "./UserManagementModule" })
-	// 			.then((m) => m.UserManagementModule)
-	// 			.catch((e) => console.log(e)),
-	// 	canActivate: [AuthGuard],
-	// 	data: {
-	// 		name: "User Management",
-	// 		application: {
-	// 			id: 6, // hems
-	// 			name: "hems"
-	// 		}
-	// 	}
-	// },
-	{
-		path: "page-not-found",
-		component: PageNotFoundComponent
 	}
 ];
 

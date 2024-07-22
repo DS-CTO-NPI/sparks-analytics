@@ -1,5 +1,5 @@
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
-import { HTTP_INTERCEPTORS, HttpClient } from "@angular/common/http";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -26,6 +26,4 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 	bootstrap: [AppComponent]
 })
 export class AppModule {}
-export function HttpLoaderFactory(http: HttpClient) {
-	return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
-  }
+
