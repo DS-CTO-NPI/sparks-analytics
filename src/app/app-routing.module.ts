@@ -83,7 +83,7 @@ export const routes: Routes = [
 				path: "historian",
 				title: "SPARK-Analytics | Historian",
 				loadChildren: () =>
-					loadRemoteModule({ type: "manifest", remoteName: "historian-viewer", exposedModule: "./RemoteHistorianViewerModule" })
+					loadRemoteModule({ type: "manifest", remoteName: "mfe-historian", exposedModule: "./RemoteHistorianViewerModule" })
 						.then((m) => m.RemoteHistorianViewerModule)
 						.catch((e) => {
 							console.info("Failed to load Historian Micro-frontend:", e);
@@ -102,7 +102,7 @@ export const routes: Routes = [
 				path: "trends",
 				title: "SPARK-Analytics | Trend Analysis",
 				loadChildren: () =>
-					loadRemoteModule({ type: "manifest", remoteName: "trends-viewer", exposedModule: "./RemoteTrendsViewerModule" })
+					loadRemoteModule({ type: "manifest", remoteName: "mfe-trends", exposedModule: "./RemoteTrendsViewerModule" })
 						.then((m) => m.RemoteTrendsViewerModule)
 						.catch((e) => {
 							console.log("Failed to load Trends Micro-frontend:", e);
