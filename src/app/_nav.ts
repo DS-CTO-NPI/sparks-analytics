@@ -13,6 +13,14 @@ export const NAV: any[] = [
 			{
 				name: "User Management",
 				routerLink: "user-management"
+			},
+			{
+				name: "Asset Types,Vendors & Groups",
+				routerLink: "asset-type-vendors-and-groups"
+			},
+			{
+				name: "Asset configuration",
+				routerLink: "asset-configuration"
 			}
 		]
 	},
