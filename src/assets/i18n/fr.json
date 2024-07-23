@@ -4,6 +4,8 @@
 	"Username": "Nom d'utilisateur",
 	"Password": "Mot de passe",
 	"Remember me": "Souviens-toi de moi",
+	"filters": "Filtres",
+	"noFilterSelected": "Pas de filtre sélectionné",
 	"alarmConfiguration": "Alarm Configuration",
 	"searchAlarm": "Search Alarm",
 	"condition": "Condition",

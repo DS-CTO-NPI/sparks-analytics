@@ -1,9 +1,9 @@
-import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { EventSourcePolyfill } from "ng-event-source";
 import { Observable } from "rxjs";
 import { API } from "src/app/enums";
 import { environment, getEndpointUrl } from "src/environments/environment";
+
 export enum AlarmType {
 	CRITICAL = "Critical",
 	MAJOR = "Major",
@@ -24,16 +24,13 @@ export type AlarmsCountResponse = {
 	providedIn: "root"
 })
 export class AlarmViewerService {
-	public controllerName: string = "na";
 	public displayedAlarmEventSource!: EventSourcePolyfill;
 	public alarmCountEventSource!: EventSourcePolyfill;
 	public displayedObserverSubscriber: any;
 	public alarmCountObserverSubscriber: any;
 
-	constructor(private http: HttpClient) {}
-
-	public getOptions(controllerName: string) {
-		const appName: string = environment.name || controllerName;
+	private getOptions() {
+		const appName: string = environment.name;
 		const authToken: string | null = sessionStorage.getItem(`${appName}-authToken`) || null;
 		return {
 			headers: {
@@ -52,7 +49,6 @@ export class AlarmViewerService {
 
 	public getAlarmCount(): Observable<any> {
 		return new Observable<any>((observer) => {
-			const options: any = this.getOptions("hems");
 			if (this.alarmCountEventSource) {
 				this.alarmCountEventSource.close();
 			}
@@ -61,7 +57,7 @@ export class AlarmViewerService {
 				this.alarmCountObserverSubscriber.unsubscribe();
 			}
 			this.alarmCountObserverSubscriber = observer;
-			this.alarmCountEventSource = new EventSourcePolyfill(getEndpointUrl(API.getAlarmCount), options);
+			this.alarmCountEventSource = new EventSourcePolyfill(getEndpointUrl(API.getAlarmCount), this.getOptions());
 
 			this.alarmCountEventSource.onmessage = (event) => {
 				const response: any = JSON.parse(event.data);
@@ -94,9 +90,9 @@ export class AlarmViewerService {
 		});
 	}
 
-	public getDisplayed(controllerName: string): Observable<any> {
+	public getDisplayed(): Observable<any> {
 		return new Observable<any>((observer) => {
-			const options: any = this.getOptions(controllerName);
+			const options: any = this.getOptions();
 			if (this.displayedAlarmEventSource) {
 				this.displayedAlarmEventSource.close();
 			}
@@ -126,9 +122,5 @@ export class AlarmViewerService {
 				observer.unsubscribe();
 			};
 		});
-	}
-
-	public getDropdownCodes(term: string, options?: any): Observable<any> {
-		return this.http.get<any>(getEndpointUrl(API.codeType) + "?codeType=" + term, { params: options });
 	}
 }

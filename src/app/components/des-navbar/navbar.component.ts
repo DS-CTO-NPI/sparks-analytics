@@ -2,8 +2,8 @@ import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { NgxSpinnerService } from "ngx-spinner";
 import { NAV } from "src/app/_nav";
-import { AuthService } from "src/app/services/auth/auth.service";
 import { environment } from "src/environments/environment";
+import { AuthService } from "./auth/auth.service";
 
 @Component({
 	selector: "des-navbar",
@@ -17,6 +17,7 @@ export class NavbarComponent {
 	title = environment.description;
 	navigation = NAV; // hard-coded navigation
 	navData: any = JSON.parse(sessionStorage.getItem(`${environment.name}-navigation`) || "[]"); // navigation data received from server
+	photo = sessionStorage.getItem(`${environment.name}-photo`) || "";
 
 	constructor(private authService: AuthService, private router: Router, private spinner: NgxSpinnerService) {}
 

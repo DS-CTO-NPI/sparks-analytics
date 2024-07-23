@@ -12,6 +12,7 @@ export const routes: Routes = [
 	},
 	{
 		path: "login",
+		title: "SPARK-Analytics | Login",
 		loadChildren: () =>
 			loadRemoteModule({ type: "manifest", remoteName: "user-management-mfe", exposedModule: "./LoginModule" })
 				.then((m) => m.LoginModule)
@@ -26,6 +27,7 @@ export const routes: Routes = [
 		children: [
 			{
 				path: "",
+				title: "SPARK-Analytics | Dashboard",
 				loadChildren: () =>
 					loadRemoteModule({ type: "manifest", remoteName: "mfe-analytics-dashboard", exposedModule: "./AnalyticsDashboardModule" })
 						.then((m) => m.AnalyticsDashboardModule)
@@ -44,6 +46,7 @@ export const routes: Routes = [
 			},
 			{
 				path: "user-management",
+				title: "SPARK-Analytics | User Management",
 				loadChildren: () =>
 					loadRemoteModule({ type: "manifest", remoteName: "user-management-mfe", exposedModule: "./UserManagementModule" })
 						.then((m) => m.UserManagementModule)
@@ -62,8 +65,9 @@ export const routes: Routes = [
 			},
 			{
 				path: "alarm-viewer",
+				title: "SPARK-Analytics | Alarm Viewer",
 				loadChildren: () =>
-					loadRemoteModule({ type: "manifest", remoteName: "mfealarm", exposedModule: "./RemoteAlarmsViewerModule" })
+					loadRemoteModule({ type: "manifest", remoteName: "mfe-alarm", exposedModule: "./RemoteAlarmsViewerModule" })
 						.then((m) => m.RemoteAlarmsViewerModule)
 						.catch((e) => {
 							console.info("Failed to load Alarm Micro-frontend:", e);
@@ -77,6 +81,7 @@ export const routes: Routes = [
 			},
 			{
 				path: "historian",
+				title: "SPARK-Analytics | Historian",
 				loadChildren: () =>
 					loadRemoteModule({ type: "manifest", remoteName: "historian-viewer", exposedModule: "./RemoteHistorianViewerModule" })
 						.then((m) => m.RemoteHistorianViewerModule)
@@ -95,6 +100,7 @@ export const routes: Routes = [
 			},
 			{
 				path: "trends",
+				title: "SPARK-Analytics | Trend Analysis",
 				loadChildren: () =>
 					loadRemoteModule({ type: "manifest", remoteName: "trends-viewer", exposedModule: "./RemoteTrendsViewerModule" })
 						.then((m) => m.RemoteTrendsViewerModule)
@@ -113,6 +119,7 @@ export const routes: Routes = [
 			},
 			{
 				path: "notification-viewer",
+				title: "SPARK-Analytics | Notification Viewer",
 				loadChildren: () =>
 					loadRemoteModule({
 						type: "manifest",
@@ -132,6 +139,7 @@ export const routes: Routes = [
 			},
 			{
 				path: "custom-dashboard",
+				title: "SPARK-Analytics | Custom Dashboard",
 				loadChildren: () =>
 					loadRemoteModule({ type: "manifest", remoteName: "mfe-custom-dashboard", exposedModule: "./CustomdashboardModule" })
 						.then((m) => m.CustomdashboardModule)
@@ -146,6 +154,39 @@ export const routes: Routes = [
 						id: 6, // hems
 						name: "hems"
 					}
+				}
+			},
+			{
+				path: "asset-type-vendors-and-groups",
+				title: "SPARK-Analytics | Asset Types,Vendors & Groups",
+				loadChildren: () =>
+					loadRemoteModule({ type: "manifest", remoteName: "mfe-asset-management", exposedModule: "./RemoteAssetVendorsModule" })
+						.then((m) => m.RemoteAssetVendorsModule)
+						.catch((e) => {
+							console.log("Failed to load Asset Management Micro-frontend:", e);
+							return import("./components/des-page-not-found/page-not-found.module").then((mod) => mod.PageNotFoundModule);
+						}),
+				// canActivate: [AuthGuard],
+				data: {
+					// id: 4
+					controllerName: "hems",
+					name: "Asset Types,Vendors & Groups"
+				}
+			},
+			{
+				path: "asset-configuration",
+				title: "SPARK-Analytics | Asset Configuration",
+				loadChildren: () =>
+					loadRemoteModule({ type: "manifest", remoteName: "mfe-asset-management", exposedModule: "./RemoteDevicemanagementModule" })
+						.then((m) => m.RemoteDevicemanagementModule)
+						.catch((e) => {
+							console.log("Failed to load Asset Management Micro-frontend:", e);
+							return import("./components/des-page-not-found/page-not-found.module").then((mod) => mod.PageNotFoundModule);
+						}),
+				// canActivate: [AuthGuard],
+				data: {
+					controllerName: "hems",
+					name: "Asset Configuration"
 				}
 			}
 		]
