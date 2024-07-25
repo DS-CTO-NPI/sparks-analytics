@@ -20,4 +20,22 @@ export class AuthService {
 		// Remove keys from sessionStorage
 		keysToRemove.forEach((key) => sessionStorage.removeItem(key));
 	}
+
+	initializeApp(): Promise<void> {
+		return new Promise<void>((resolve, reject) => {
+			try {
+				const application = {
+					NAME: environment.name,
+					DESCRIPTION: environment.description,
+					VERSION: environment.version,
+					APP_ID: environment.appId
+				};
+				sessionStorage.setItem("application", JSON.stringify(application));
+				resolve();
+			} catch (error) {
+				console.error("Failed to initialize application:", error);
+				reject(error);
+			}
+		});
+	}
 }
