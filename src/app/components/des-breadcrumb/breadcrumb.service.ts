@@ -20,7 +20,7 @@ export class BreadcrumbService {
 
 	private getLandingPageRoute(): Breadcrumb {
 		const navigationData: any = JSON.parse(sessionStorage.getItem(`${environment.name}-navigation`) || "[]");
-		const landingPage = navigationData.find((item: any) => item.isLanding);
+		const landingPage: any = navigationData && navigationData.length > 0 ? navigationData.find((item: any) => item.isLanding) : undefined;
 		return {
 			label: "Home",
 			url: landingPage ? landingPage.routerLink : ""
