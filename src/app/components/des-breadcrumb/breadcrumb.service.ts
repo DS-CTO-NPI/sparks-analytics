@@ -3,17 +3,28 @@ import { Injectable } from "@angular/core";
 import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { Observable, of } from "rxjs";
 import { filter } from "rxjs/operators";
+import { environment } from "src/environments/environment";
 
 @Injectable({
 	providedIn: "root"
 })
 export class BreadcrumbService {
 	private breadcrumbs: Breadcrumb[] = [];
+	private landingPageRoute: Breadcrumb = this.getLandingPageRoute();
 
 	constructor(private router: Router, private activatedRoute: ActivatedRoute) {
 		this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
-			this.breadcrumbs = [{ label: "Home", url: "/plant-dashboard" }, ...this.createBreadcrumbs(this.activatedRoute.root)];
+			this.breadcrumbs = [this.landingPageRoute, ...this.createBreadcrumbs(this.activatedRoute.root)];
 		});
+	}
+
+	private getLandingPageRoute(): Breadcrumb {
+		const navigationData: any = JSON.parse(sessionStorage.getItem(`${environment.name}-navigation`) || "[]");
+		const landingPage: any = navigationData && navigationData.length > 0 ? navigationData.find((item: any) => item.isLanding) : undefined;
+		return {
+			label: "Home",
+			url: landingPage ? landingPage.routerLink : ""
+		};
 	}
 
 	getBreadcrumbs(): Observable<Breadcrumb[] | any> {
@@ -38,7 +49,6 @@ export class BreadcrumbService {
 			}
 			return this.createBreadcrumbs(child, url, breadcrumbs);
 		}
-
 		return breadcrumbs;
 	}
 }

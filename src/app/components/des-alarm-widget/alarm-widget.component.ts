@@ -8,7 +8,7 @@ import { AlarmsCountResponse, AlarmViewerService } from "./alarm-viewer.service"
 		<section class="des-alert-widget" [routerLink]="['alarm-viewer']">
 			<ng-container *ngIf="alarmCount$ | async as alarms; else noAlarms">
 				<ng-container *ngIf="alarms.length > 0; else noAlarms">
-					<span class="px-1 text-white" *ngFor="let alarm of alarms">
+					<span class="px-1 text-white" *ngFor="let alarm of alarms" data-toggle="tooltip" title="{{ alarm.severity }}">
 						{{ alarm.value }}
 						<span class="des-alert-color" [ngClass]="alarm.severity | lowercase"></span>
 					</span>
