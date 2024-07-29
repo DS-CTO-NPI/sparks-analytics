@@ -5,14 +5,14 @@
 			<div class="controller-title">Controller Status</div>
 			<div class="controller-body mt-1">
 				<div class="controller-device">
-					<img class="img-white" src="./assets/images/controller/ppc.svg" height="28" width="30" />
+					<img class="img-white" src="./assets/images/spark/controller/ppc.svg" height="28" width="30" />
 				</div>
 				<div class="controller-device-status">
 					<span class="badge" [ngClass]="ppcStyle ? 'badge-success' : 'badge-danger'">{{ this.ppcStatus }}</span>
 					<p *ngIf="bmsData.unhealthybms.length != 0" class="badge-label">PPC</p>
 				</div>
 				<div class="controller-device">
-					<img class="img-white" src="./assets/images/controller/ess.svg" height="28" width="30" />
+					<img class="img-white" src="./assets/images/spark/controller/ess.svg" height="28" width="30" />
 				</div>
 				<div class="controller-device-status">
 					<span class="badge" [ngClass]="essStyle ? 'badge-success' : 'badge-danger'">{{ this.essStatus }}</span>
@@ -26,7 +26,7 @@
 			<div class="controller-title">Plant Operation mode</div>
 			<div class="controller-body mt-1">
 				<div class="controller-device">
-					<img class="img-white" src="./assets/images/controller/industry.png" height="28" width="30" />
+					<img class="img-white" src="./assets/images/spark/controller/industry.png" height="28" width="30" />
 				</div>
 				<div class="controller-device-status">
 					<div class="controller-status-label ml-2">{{ modeOfOperation | uppercase }}</div>
@@ -39,7 +39,7 @@
 			<div class="controller-title">BMS Status</div>
 			<div class="controller-body">
 				<div class="controller-device">
-					<img src="./assets/images/controller/bms.svg" height="28" width="30" />
+					<img src="./assets/images/spark/controller/bms.svg" height="28" width="30" />
 				</div>
 				<div class="controller-device-status">
 					<span class="badge" [ngClass]="bmsData.bmsStyle ? 'badge-success' : 'badge-danger'">{{ bmsStatus }}</span>
@@ -53,7 +53,7 @@
 			<div class="controller-title">Communication Status</div>
 			<div class="controller-body" [class.mt-1]="pcsStatus == 'Good'">
 				<div class="controller-device">
-					<img src="./assets/images/controller/communication.svg" height="28" width="30" />
+					<img src="./assets/images/spark/controller/communication.svg" height="28" width="30" />
 				</div>
 				<div class="controller-device-status">
 					<ng-container *ngIf="pcsStatus == 'Good'; else badStatus">

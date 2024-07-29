@@ -49,7 +49,7 @@ export class ControllerWidgetComponent implements OnInit, OnDestroy {
 	};
 	isEmergencyToggle: any;
 	estopStatus = "1";
-	eStopImg = "./assets/images/Stop.png";
+	eStopImg = "./assets/images/spark/Stop.png";
 	Status = "STOP";
 	public hmiStatusTimout: any;
 
@@ -230,7 +230,7 @@ export class ControllerWidgetComponent implements OnInit, OnDestroy {
 			.pipe(takeUntil(this.destroy$))
 			.subscribe({
 				next: (res: any) => {
-					this.eStopImg = this.isEmergencyCheck == "0" ? "./assets/images/Start.png" : "./assets/images/Stop.png";
+					this.eStopImg = this.isEmergencyCheck == "0" ? "./assets/images/spark/Start.png" : "./assets/images/spark/Stop.png";
 					this.Status = this.isEmergencyCheck == "0" ? "START" : "STOP";
 
 					if (res.data == "success") {
