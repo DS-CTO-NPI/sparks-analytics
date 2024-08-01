@@ -9,7 +9,7 @@ import { APP } from "./enums";
 export const NAV: any[] = [
 	{
 		name: "Dashboard",
-		routerLink: "/plant-dashboard",
+		routerLink: "/home",
 		isLanding: true,
 		children: []
 	},
@@ -145,10 +145,6 @@ export const ROUTES: Routes = [
 						loadChildren: loadRemoteModuleWithFallback("mfe-asset-management", "./RemoteDevicemanagementModule", "RemoteDevicemanagementModule"),
 						data: getRouteData("Asset Configuration", APP["HEMS"].ID, APP["HEMS"].NAME, APP["HEMS"].NAME)
 						// canActivate: [AuthGuard],
-					},
-					{
-						path: "**",
-						redirectTo: "/plant-dashboard"
 					}
 				]
 			},
@@ -186,6 +182,10 @@ export const ROUTES: Routes = [
 				loadChildren: loadRemoteModuleWithFallback("mfe-custom-dashboard", "./CustomdashboardModule", "CustomdashboardModule"),
 				data: getRouteData("Custom Dashboard", APP["HEMS"].ID, APP["HEMS"].NAME)
 				// canActivate: [AuthGuard],
+			},
+			{
+				path: "**",
+				redirectTo: "/home"
 			}
 		]
 	}
