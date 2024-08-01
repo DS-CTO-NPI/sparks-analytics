@@ -5,7 +5,7 @@ import { RouterModule } from "@angular/router";
 import { ROUTES } from "./_nav";
 import { AppComponent } from "./app.component";
 import { HttpConfigInterceptor } from "./auth";
-import { AuthService } from "./components/des-navbar/auth/auth.service";
+import { AuthService } from "./auth/auth/auth.service";
 import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
