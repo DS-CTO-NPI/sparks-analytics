@@ -39,4 +39,6 @@ export class AuthGuard implements CanActivate {
 		});
 		return hasPermission;
 	}
+
+	isAuthenticated = (): boolean => (sessionStorage.getItem(`${environment.name}-isLoggedIn`) === "true" ? true : false);
 }

@@ -1,9 +1,8 @@
 import { Component } from "@angular/core";
-import { Router } from "@angular/router";
-import { NgxSpinnerService } from "ngx-spinner";
 import { NAV } from "src/app/_nav";
+import { AuthService } from "src/app/auth/auth/auth.service";
+import { IdleDetectionService } from "src/app/auth/session/idle-detection.service";
 import { environment } from "src/environments/environment";
-import { AuthService } from "./auth/auth.service";
 
 @Component({
 	selector: "des-navbar",
@@ -19,17 +18,11 @@ export class NavbarComponent {
 	navData: any = JSON.parse(sessionStorage.getItem(`${environment.name}-navigation`) || "[]"); // navigation data received from server
 	photo = sessionStorage.getItem(`${environment.name}-photo`) || "";
 
-	constructor(private authService: AuthService, private router: Router, private spinner: NgxSpinnerService) {}
+	constructor(private authService: AuthService, private idleDetectionService: IdleDetectionService) {}
 
 	logout = () => {
-		this.spinner.show();
-		this.authService.logout().subscribe((response) => {
-			this.spinner.hide();
-			if (response.statusCode == 204) {
-				this.authService.clearSessionStorageWithPrefix(`${environment.name}-`);
-				this.router.navigate(["/login"]);
-			}
-		});
+		this.authService.logout();
+		this.idleDetectionService.ngOnDestroy();
 	};
 
 	getLandingPage = (): string => (this.navData && this.navData.length > 0 ? this.navData.find((item: any) => item.isLanding === true)?.routerLink || "" : "");
