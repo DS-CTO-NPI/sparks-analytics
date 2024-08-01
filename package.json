@@ -3,7 +3,7 @@
 	"appId": "6",
 	"application": "hems",
 	"description": "SPARK Analytics",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"scripts": {
 		"ng": "ng",
 		"start": "ng serve",
