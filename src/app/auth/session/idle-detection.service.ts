@@ -73,7 +73,7 @@ export class IdleDetectionService implements OnDestroy {
 		const seconds: number = Math.floor((remainingTime % TIME.ONE_MINUTE) / TIME.ONE_SECOND);
 		const time = `${minutes} Minutes ${seconds} Seconds`;
 		this.sessionExpiryTime$.next(time);
-		console.log(`Remaining time: ${time}`);
+		// console.log(`Remaining time: ${time}`);
 	}
 
 	private resetIdleTimer(): void {
