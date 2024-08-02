@@ -8,7 +8,7 @@ import { environment } from "src/environments/environment";
 })
 export class AuthGuard implements CanActivate {
 	private appName!: string;
-	constructor(private router: Router, private Toast: ToastrService) {
+	constructor(private router: Router, private toast: ToastrService) {
 		this.appName = environment.name;
 	}
 
@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
 			const navigationData: any = JSON.parse(sessionStorage.getItem(`${this.appName}-navigation`) || "[]");
 			const hasAccess: boolean = this.hasRoutingPermission(navigationData, routerName);
 			if (!hasAccess) {
-				this.Toast.error(`User don't have permission to access ${routerName}, please contact your administrator`, "Access Denied");
+				this.toast.error(`User don't have permission to access ${routerName}, please contact your administrator`, "Access Denied");
 			}
 			return hasAccess;
 		} else {

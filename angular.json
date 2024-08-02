@@ -33,8 +33,7 @@
 							"node_modules/bootstrap/dist/css/bootstrap.min.css",
 							"node_modules/font-awesome/css/font-awesome.css",
 							"src/scss/styles.scss",
-							"node_modules/material-icons/iconfont/material-icons.css",
-							"node_modules/@fortawesome/fontawesome-free/css/all.css"
+							"node_modules/material-icons/iconfont/material-icons.css"
 						],
 						"stylePreprocessorOptions": { "includePaths": ["src"] },
 						"scripts": [

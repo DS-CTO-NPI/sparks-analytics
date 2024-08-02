@@ -6,5 +6,7 @@
 	"mfe-historian": "http://localhost:4206/remoteEntry.js",
 	"mfe-trends": "http://localhost:4207/remoteEntry.js",
 	"mfe-asset-management": "http://localhost:4205/remoteEntry.js",
+	"mfe-historian": "http://localhost:4206/remoteEntry.js",
+	"mfe-trends": "http://localhost:4207/remoteEntry.js",
 	"mfe-custom-dashboard": "http://localhost:4208/remoteEntry.js"
 }
