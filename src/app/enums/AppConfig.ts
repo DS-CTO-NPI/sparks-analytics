@@ -1,3 +1,4 @@
+// URL constants
 export enum API {
 	// auth
 	logout = "/common/user-service/user-login/logout/",
