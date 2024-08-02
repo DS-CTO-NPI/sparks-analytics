@@ -116,7 +116,6 @@ export class IdleDetectionService implements OnDestroy {
 	}
 
 	ngOnDestroy(): void {
-		console.log("Idle Detection Service Destroyed");
 		this.stopIdleTimer();
 		this.activitySubscriptions.forEach((sub) => sub.unsubscribe());
 		this.bsModalRef?.hide();
