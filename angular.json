@@ -32,8 +32,8 @@
 							"node_modules/ag-grid-community/dist/styles/ag-theme-balham.css",
 							"node_modules/bootstrap/dist/css/bootstrap.min.css",
 							"node_modules/font-awesome/css/font-awesome.css",
-							"src/scss/styles.scss",
-							"node_modules/material-icons/iconfont/material-icons.css"
+							"node_modules/material-icons/iconfont/material-icons.css",
+							"src/scss/styles.scss"
 						],
 						"stylePreprocessorOptions": { "includePaths": ["src"] },
 						"scripts": [
