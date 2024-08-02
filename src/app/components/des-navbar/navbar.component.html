@@ -3,11 +3,11 @@
 	<ul>
 		<li class="nav-item">
 			<button type="button" class="btn btn-block p-0 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<img src="assets/images/application/menu_grid.svg" width="30" height="30" class="d-inline-block align-top" alt="menu_grid" />
+				<img src="assets/images/menu_grid.svg" width="30" height="30" class="d-inline-block align-top" alt="menu_grid" />
 			</button>
 			<div class="dropdown-menu"><ng-container [ngTemplateOutlet]="navTemplate"></ng-container></div>
 		</li>
-		<li class="nav-item logo"><img class="logo" class="navbar-logo" src="assets/images/application/DS_Logo_White.png" /></li>
+		<li class="nav-item logo"><img class="logo" class="navbar-logo" src="assets/images/DS_Logo_White.png" /></li>
 		<li class="nav-item">
 			<a class="navbar-brand" [routerLink]="getLandingPage()">{{ title }}</a>
 		</li>
@@ -33,7 +33,7 @@
 				<a type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					<img
 						[src]="'data:image/jpeg;base64,' + photo"
-						onerror="this.src='assets/images/application/profile_avatar.png'"
+						onerror="this.src='assets/images/profile_avatar.png'"
 						width="50"
 						height="50"
 						class="rounded-circle"
