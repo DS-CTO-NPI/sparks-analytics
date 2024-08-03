@@ -14,19 +14,19 @@ export class ControllerService {
 	constructor(private http: HttpClient) {}
 
 	public getDropdownCodes(term: string, options?: any): Observable<any> {
-		return this.http.get<any>(getEndpointUrl(API.codeType) + "?codeType=" + term, { params: options });
+		return this.http.get<any>(getEndpointUrl(API.GET_CODE_TYPE) + "?codeType=" + term, { params: options });
 	}
 
 	public getHMIStatus(): Observable<any> {
-		return this.http.get(getEndpointUrl(API.hmiStatus));
+		return this.http.get(getEndpointUrl(API.GET_HMI_STATUS));
 	}
 
 	public getEmergencyStatus(status: any): Observable<any> {
-		return this.http.get(getEndpointUrl(API.emergencyStop) + status);
+		return this.http.get(getEndpointUrl(API.EMERGENCY_STOP) + status);
 	}
 
 	public getControllerValue(): Observable<any> {
-		return this.http.get(getEndpointUrl(API.getControllerValue));
+		return this.http.get(getEndpointUrl(API.GET_CONTROLLER_VALUE));
 	}
 
 	sendMessage(message: string) {

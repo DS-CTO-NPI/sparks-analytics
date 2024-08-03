@@ -15,12 +15,12 @@ export class AuthService {
 	public logout() {
 		const authUser: string | undefined = sessionStorage.getItem(`${environment.name}-authenticatedUser`) || undefined;
 		if (authUser) {
-			const logoutUrl = `${getEndpointUrl(API.logout)}${authUser}`;
+			const logoutUrl = `${getEndpointUrl(API.LOGOUT)}${authUser}`;
 			this.spinner.show();
 			this.http
 				.get<any>(logoutUrl)
 				.pipe(
-					delay(500), // Simulate delay if needed
+					delay(500), // Simulate delay to show spinner
 					tap((response) => {
 						if (response.statusCode === 204) {
 							this.clearSessionStorageWithPrefix(`${environment.name}-`);

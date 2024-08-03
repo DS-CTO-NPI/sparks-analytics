@@ -57,7 +57,7 @@ export class AlarmViewerService {
 				this.alarmCountObserverSubscriber.unsubscribe();
 			}
 			this.alarmCountObserverSubscriber = observer;
-			this.alarmCountEventSource = new EventSourcePolyfill(getEndpointUrl(API.getAlarmCount), this.getOptions());
+			this.alarmCountEventSource = new EventSourcePolyfill(getEndpointUrl(API.GET_ALARM_COUNT), this.getOptions());
 
 			this.alarmCountEventSource.onmessage = (event) => {
 				const response: any = JSON.parse(event.data);
@@ -101,7 +101,7 @@ export class AlarmViewerService {
 				this.displayedObserverSubscriber.unsubscribe();
 			}
 			this.displayedObserverSubscriber = observer;
-			this.displayedAlarmEventSource = new EventSourcePolyfill(getEndpointUrl(API.getDisplayed), options);
+			this.displayedAlarmEventSource = new EventSourcePolyfill(getEndpointUrl(API.GET_ALARM_NOTIFICATION), options);
 
 			this.displayedAlarmEventSource.onmessage = (event) => {
 				let json: any = JSON.parse(event.data);
