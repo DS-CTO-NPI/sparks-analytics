@@ -2,9 +2,9 @@
     "message": "Success",
     "data": [
         {
-            "deviceId": "INV1",
-            "measurementName": "PSet",
-            "uom": "mw",
+            "deviceId": "TESTASSET",
+            "measurementName": "TESTMEASUREMENT",
+            "uom": "MW",
             "valuesDto": [
                 [
                     "2024-05-30T06:25:11.506756Z",
