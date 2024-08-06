@@ -2,11 +2,10 @@ import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { APP_INITIALIZER, NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
+import { AuthService, HttpConfigInterceptor } from "@shell/auth/index";
+import { SharedModule } from "@shell/shared/shared.module";
 import { ROUTES } from "./_nav";
 import { AppComponent } from "./app.component";
-import { HttpConfigInterceptor } from "./auth";
-import { AuthService } from "./auth/auth/auth.service";
-import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
 	declarations: [AppComponent],

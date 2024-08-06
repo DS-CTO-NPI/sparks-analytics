@@ -20,7 +20,14 @@
 		"types": ["node"],
 		"resolveJsonModule": true,
 		"allowSyntheticDefaultImports": true,
-		"lib": ["es2020", "dom"]
+		"lib": ["es2020", "dom"],
+		"paths": {
+			"@shell/enums/*": ["src/app/enums/*"],
+			"@shell/components/*": ["src/app/components/*"],
+			"@shell/services/*": ["src/app/services/*"],
+			"@shell/shared/*": ["src/app/shared/*"],
+			"@shell/auth/*": ["src/app/auth/*"]
+		}
 	},
 	"angularCompilerOptions": {
 		"enableI18nLegacyMessageIdFormat": false,
