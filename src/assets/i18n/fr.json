@@ -82,5 +82,7 @@
 	"create": "Créer",
 	"noRowsTemplateSubscriber": "Aucune donnée disponible, veuillez ajouter un abonné",
 	"notificationViewerDashboard": "Tableau de bord de la visionneuse de notifications",
-	"subscriberDataGroup": "Données d'abonné pour le groupe"
+	"subscriberDataGroup": "Données d'abonné pour le groupe",
+	"selectDashboard": "Sélectionnez le tableau de bord"
+
 }
